@@ -4,7 +4,7 @@ on:
     branches: [main, beta]
 
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
     permissions:
       actions: write
