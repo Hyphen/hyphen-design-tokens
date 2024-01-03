@@ -785,10 +785,10 @@
         "value": "monospace"
       },
       "body": {
-        "value": "'avenir', 'avenir next', 'Inter', -apple-system, BlinkMacSystemFont, 'helvetica neue', 'helvetica', 'Ubuntu', 'roboto', 'noto', 'segoe ui', arial, sans-serif"
+        "value": "'avenir', 'avenir next', 'lato', sans-serif"
       },
       "brand": {
-        "value": "'avenir', 'avenir next' 'Helvetica', Arial, sans-serif"
+        "value": "'avenir', 'avenir next', 'lato', sans-serif"
       }
     }
   }
