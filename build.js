@@ -16,7 +16,7 @@ console.log('==============================================');
 // Custom Filters
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
-  matcher: prop => prop.attributes.category === 'color',
+  matcher: prop => true,
 });
 
 StyleDictionary.registerFilter({
