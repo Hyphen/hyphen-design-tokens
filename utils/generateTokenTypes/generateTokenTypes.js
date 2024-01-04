@@ -9,8 +9,6 @@ const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
 const assetTokens = require('../../build/json/variables-asset.json');
 
-console.log(colorTokens)
-
 /**
  * COLORS
  */

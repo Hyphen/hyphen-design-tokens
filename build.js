@@ -69,12 +69,11 @@ try {
     console.log('Loading from Figma is not currently supported...');
   }
 
-  const localOverrides = require('./localOverrides.json');
-  properties = { ...properties, ...localOverrides };
+  if (fse.pathExistsSync('./localVariables.json')) {
+    const localVariables = require('./localVariables.json');
+    properties = { ...properties, ...localVariables };
+  }
 
-
-
-  console.log('properties: ', properties);
 
   /**
   * Generate semantic (light, lighter, etc...) colors
@@ -126,4 +125,5 @@ try {
 
 } catch (e) {
   console.error(e);
+  throw e; // log the error but this will stop the build
 }
