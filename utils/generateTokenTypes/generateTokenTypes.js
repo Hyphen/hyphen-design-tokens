@@ -11,14 +11,6 @@ const assetTokens = require('../../build/json/variables-asset.json');
 
 console.log(colorTokens)
 
-console.log('FILES for ./build/json\n+++++++++++++++++++++++++++++++++++++');
-fs.readdirSync('./build/json/').forEach(file => {
-  console.log(file);
-});
-console.log('+++++++++++++++++++++++++++++++++++++')
-
-console.log(fs.readFileSync('./build/json/variables-color.json').toString());
-
 /**
  * COLORS
  */

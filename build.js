@@ -16,7 +16,7 @@ console.log('==============================================');
 // Custom Filters
 StyleDictionary.registerFilter({
   name: 'isCategoryColor',
-  matcher: prop => true,
+  matcher: prop => prop.attributes.category === 'color',
 });
 
 StyleDictionary.registerFilter({
@@ -73,6 +73,9 @@ try {
     const localOverrides = require('./localOverrides.json');
     properties = { ...properties, ...localOverrides };
   }
+
+
+  console.log('properties: ', properties);
 
   /**
   * Generate semantic (light, lighter, etc...) colors
