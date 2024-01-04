@@ -69,10 +69,9 @@ try {
     console.log('Loading from Figma is not currently supported...');
   }
 
-  if (fse.pathExistsSync('./localOverrides.json')) {
-    const localOverrides = require('./localOverrides.json');
-    properties = { ...properties, ...localOverrides };
-  }
+  const localOverrides = require('./localOverrides.json');
+  properties = { ...properties, ...localOverrides };
+
 
 
   console.log('properties: ', properties);
