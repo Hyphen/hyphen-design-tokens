@@ -17,6 +17,8 @@ fs.readdirSync('./build/json/').forEach(file => {
 });
 console.log('+++++++++++++++++++++++++++++++++++++')
 
+console.log(fs.readFileSync('./build/json/variables-color.json').toString());
+
 /**
  * COLORS
  */
