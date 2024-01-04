@@ -9,6 +9,14 @@ const colorTokens = require('../../build/json/variables-color.json');
 const sizeTokens = require('../../build/json/variables-size.json');
 const assetTokens = require('../../build/json/variables-asset.json');
 
+console.log(colorTokens)
+
+console.log('FILES for ./build/json\n+++++++++++++++++++++++++++++++++++++');
+fs.readdirSync('./build/json/').forEach(file => {
+  console.log(file);
+});
+console.log('+++++++++++++++++++++++++++++++++++++')
+
 /**
  * COLORS
  */
@@ -71,11 +79,11 @@ const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 /**
  * ASSETS 
  */
- const { asset } = assetTokens;
+const { asset } = assetTokens;
 
- const fontFamilyOptions = Object.keys(asset.fonts);
+const fontFamilyOptions = Object.keys(asset.fonts);
 
- const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
+const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 
 /**
  * ICONS
