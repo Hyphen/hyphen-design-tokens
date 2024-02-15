@@ -1,7 +1,6 @@
 require('dotenv').config();
 const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
-const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
 const dictionaryConfig = require('./config.json');
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const cssVariablesFont = require('./formats/cssVariablesFont/cssVariablesFont');
@@ -73,14 +72,6 @@ try {
     const localVariables = require('./localVariables.json');
     properties = { ...properties, ...localVariables };
   }
-
-
-  /**
-  * Generate semantic (light, lighter, etc...) colors
-  * from lightness numbers (50, 100, etc...)
-  * It keeps the original colors as well as the semantic versions.
-  */
-  properties = mapSemanticColors(properties);
 
   /**
    * Apply the configuration.
