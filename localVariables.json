@@ -441,31 +441,35 @@
         "unit": "rem"
       },
       "lg": {
-        "value": "1.25",
+        "value": "1.125",
         "unit": "rem"
       },
       "xl": {
-        "value": "1.5",
-        "unit": "rem"
-      },
-      "1xl": {
-        "value": "2",
+        "value": "1.25",
         "unit": "rem"
       },
       "2xl": {
-        "value": "2.25",
+        "value": "1.5",
         "unit": "rem"
       },
       "3xl": {
-        "value": "3",
+        "value": "2",
         "unit": "rem"
       },
       "4xl": {
-        "value": "4",
+        "value": "2.5",
         "unit": "rem"
       },
       "5xl": {
-        "value": "6",
+        "value": "3",
+        "unit": "rem"
+      },
+      "6xl": {
+        "value": "3.5",
+        "unit": "rem"
+      },
+      "7xl": {
+        "value": "4",
         "unit": "rem"
       },
       "base": {
@@ -485,6 +489,9 @@
       },
       "medium": {
         "value": "500"
+      },
+      "semi-bold": {
+        "value": "600"
       },
       "bold": {
         "value": "800"
