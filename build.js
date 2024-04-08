@@ -1,9 +1,4 @@
 const StyleDictionary = require('style-dictionary');
-const fs = require('fs-extra');
-
-const iosPath = `ios/`;
-const androidPath = `android`;
-const webPath = `css`;
 
 // before this runs we should clean the directories we are generating files in
 // to make sure they are ✨clean✨
