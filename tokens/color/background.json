@@ -1,0 +1,30 @@
+{
+  "color": {
+    "background": {
+      "primary": {
+        "value": "{color.base.white.value}",
+        "darkValue": "{color.base.grey.900.value}"
+      },
+      "secondary": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.800.value}"
+      },
+      "success": {
+        "value": "{color.base.green.100.value}",
+        "darkValue": "{color.base.green.800.value}"
+      },
+      "danger": {
+        "value": "{color.base.red.100.value}",
+        "darkValue": "{color.base.red.100.value}"
+      },
+      "warning": {
+        "value": "{color.base.yellow.100.value}",
+        "darkValue": "{color.base.yellow.100.value}"
+      },
+      "info": {
+        "value": "{color.base.blue.100.value}",
+        "darkValue": "{color.base.blue.100.value}"
+      }
+    }
+  }
+}

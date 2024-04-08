@@ -1,0 +1,21 @@
+{
+  "size": {
+    "line-height": {
+      "base": {
+        "value": "1.25"
+      },
+      "input": {
+        "value": "1.15",
+        "comment": "for use by form inputs"
+      },
+      "heading": {
+        "value": "1.25",
+        "comment": "the line-height for headings"
+      },
+      "text": {
+        "value": "1.5",
+        "comment": "for paragraphs of text"
+      }
+    }
+  }
+}

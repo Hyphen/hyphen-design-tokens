@@ -1,13 +1,39 @@
 {
   "source": ["tokens/**/*.json"],
+
   "platforms": {
     "web": {
-      "transformGroup": "web",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/css",
+        "size/rem"
+      ],
       "buildPath": "build/css/",
       "files": [
         {
           "destination": "_variables.css",
           "format": "css/variables"
+        }
+      ]
+    },
+    "json": {
+      "transformGroup": "js",
+      "buildPath": "build/json/",
+      "files": [
+        {
+          "destination": "_variables.json",
+          "format": "javascript/module"
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "build/js/",
+      "files": [
+        {
+          "destination": "_variables.js",
+          "format": "javascript/object"
         }
       ]
     },

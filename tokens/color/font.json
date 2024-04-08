@@ -1,9 +1,22 @@
 {
   "color": {
     "font": {
-      "base"     : { "value": "{color.base.red.value}" },
-      "secondary": { "value": "{color.base.green.value}" },
-      "tertiary" : { "value": "{color.base.gray.light.value}" }
+      "base": {
+        "value": "{color.base.grey.600.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "secondary": {
+        "value": "{color.base.grey.500.value}",
+        "darkValue": "{color.base.grey.200.value}"
+      },
+      "inverse": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
+      "disabled": {
+        "value": "{color.base.grey.300.value}",
+        "darkValue": "{color.base.grey.400.value}"
+      }
     }
   }
 }
