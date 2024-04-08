@@ -1,197 +1,181 @@
-# Hyphen Design Tokens
+# Basic Style Dictionary
 
-[![npm version](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens.svg)](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens)
-
-A central location to store shared attributes of the hyphen Design System. These attributes include: colors, fonts, spacing, and more. Using [Amazon's Style Dictionary](https://amzn.github.io/style-dictionary/) we transform attributes into usable variables for a variety of platforms.
-
-## Usage
-
-### Install The package in your project
-
-```terminal
-npm install @hyphen/hyphen-design-tokens
+This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
+```bash
+style-dictionary build
 ```
 
-or
+You should see something like this output:
+```
+Copying starter files...
 
-```terminal
-yarn add @hyphen/hyphen-design-tokens
+Source style dictionary starter files created!
+
+Running `style-dictionary build` for the first time to generate build artifacts.
+
+
+scss
+✔︎  build/scss/_variables.scss
+
+android
+✔︎  build/android/font_dimens.xml
+✔︎  build/android/colors.xml
+
+compose
+✔︎ build/compose/StyleDictionaryColor.kt
+✔︎ build/compose/StyleDictionarySize.kt
+
+ios
+✔︎  build/ios/StyleDictionaryColor.h
+✔︎  build/ios/StyleDictionaryColor.m
+✔︎  build/ios/StyleDictionarySize.h
+✔︎  build/ios/StyleDictionarySize.m
+
+ios-swift
+✔︎  build/ios-swift/StyleDictionary.swift
+
+ios-swift-separate-enums
+✔︎  build/ios-swift/StyleDictionaryColor.swift
+✔︎  build/ios-swift/StyleDictionarySize.swift
 ```
 
-### Import tokens into your project based on your platform requirements
+Good for you! You have now built your first style dictionary! Moving on, take a look at what we have built. This should have created a build directory and it should look like this:
+```
+├── README.md
+├── config.json
+├── tokens/
+│   ├── color/
+│       ├── base.json
+│       ├── font.json
+│   ├── size/
+│       ├── font.json
+├── build/
+│   ├── android/
+│      ├── font_dimens.xml
+│      ├── colors.xml
+│   ├── compose/
+│      ├── StyleDictionaryColor.kt
+│      ├── StyleDictionarySize.kt
+│   ├── scss/
+│      ├── _variables.scss
+│   ├── ios/
+│      ├── StyleDictionaryColor.h
+│      ├── StyleDictionaryColor.m
+│      ├── StyleDictionarySize.h
+│      ├── StyleDictionarySize.m
+│   ├── ios-swift/
+│      ├── StyleDictionary.swift
+│      ├── StyleDictionaryColor.swift
+│      ├── StyleDictionarySize.swift
+```
 
-Ideally you'd want to import them into a file that exposes them to your entire application.
+If you open `config.json` you will see there are 5 platforms defined: scss, android, compose, ios, and ios-swift. Each platform has a transformGroup, buildPath, and files. The buildPath and files of the platform should match up to the files what were built. The files built should look like these:
 
-SASS Variables imported into a .scss file
+**Android**
+```xml
+<!-- font_dimens.xml -->
+<resources>
+  <dimen name="size_font_small">12.00sp</dimen>
+  <dimen name="size_font_medium">16.00sp</dimen>
+  <dimen name="size_font_large">32.00sp</dimen>
+  <dimen name="size_font_base">16.00sp</dimen>
+</resources>
 
+<!-- colors.xml -->
+<resources>
+  <color name="color_base_gray_light">#ffcccccc</color>
+  <color name="color_base_gray_medium">#ff999999</color>
+  <color name="color_base_gray_dark">#ff111111</color>
+  <color name="color_base_red">#ffff0000</color>
+  <color name="color_base_green">#ff00ff00</color>
+  <color name="color_font_base">#ffff0000</color>
+  <color name="color_font_secondary">#ff00ff00</color>
+  <color name="color_font_tertiary">#ffcccccc</color>
+</resources>
+```
+
+**Compose**
+```kotlin
+object StyleDictionaryColor {
+  val colorBaseGrayDark = Color(0xff111111)
+  val colorBaseGrayLight = Color(0xffcccccc)
+  val colorBaseGrayMedium = Color(0xff999999)
+  val colorBaseGreen = Color(0xff00ff00)
+  val colorBaseRed = Color(0xffff0000)
+  val colorFontBase = Color(0xffff0000)
+  val colorFontSecondary = Color(0xff00ff00)
+  val colorFontTertiary = Color(0xffcccccc)
+}
+
+object StyleDictionarySize {
+  /** the base size of the font */
+  val sizeFontBase = 16.00.sp
+  /** the large size of the font */
+  val sizeFontLarge = 32.00.sp
+  /** the medium size of the font */
+  val sizeFontMedium = 16.00.sp
+  /** the small size of the font */
+  val sizeFontSmall = 12.00.sp
+}
+```
+
+**SCSS**
 ```scss
-@import '~@hyphen/hyphen-design-tokens/build/scss/tokens.scss'
+// variables.scss
+$color-base-gray-light: #cccccc;
+$color-base-gray-medium: #999999;
+$color-base-gray-dark: #111111;
+$color-base-red: #ff0000;
+$color-base-green: #00ff00;
+$color-font-base: #ff0000;
+$color-font-secondary: #00ff00;
+$color-font-tertiary: #cccccc;
+$size-font-small: 0.75rem;
+$size-font-medium: 1rem;
+$size-font-large: 2rem;
+$size-font-base: 1rem;
 ```
 
-CSS Variables imported into a .css file
+**iOS**
+```objc
+#import "StyleDictionaryColor.h"
 
-```css
-@import '~@hyphen/hyphen-design-tokens/build/css/tokens.css'
+@implementation StyleDictionaryColor
+
++ (UIColor *)color:(StyleDictionaryColorName)colorEnum{
+  return [[self values] objectAtIndex:colorEnum];
+}
+
++ (NSArray *)values {
+  static NSArray* colorArray;
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    colorArray = @[
+[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f],
+[UIColor colorWithRed:0.600f green:0.600f blue:0.600f alpha:1.000f],
+[UIColor colorWithRed:0.067f green:0.067f blue:0.067f alpha:1.000f],
+[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
+[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
+[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
+[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
+[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f]
+    ];
+  });
+
+  return colorArray;
+}
+
+@end
 ```
 
-SASS Utility classes imported into a .scss file
-(NOTE: SCSS and CSS utility classes are the same, we provide both if you wish to maintain consistency in file formats)
+Pretty nifty! This shows a few things happening:
+1. The build system does a deep merge of all the token JSON files defined in the `source` attribute of `config.json`. This allows you to split up the token JSON files however you want. There are 2 JSON files with `color` as the top level key, but they get merged properly.
+1. The build system resolves references to other design tokens. `{size.font.medium.value}` gets resolved properly.
+1. The build system handles references to token values in other files as well as you can see in `tokens/color/font.json`.
 
-```scss
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-color.scss'
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-size.scss'
-```
+Now let's make a change and see how that affects things. Open up `tokens/color/base.json` and change `"#111111"` to `"#000000"`. After you make that change, save the file and re-run the build command `style-dictionary build`. Open up the build files and take a look.
 
-CSS Utility Classes imported into a .css file
+**Huzzah!**
 
-```css
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-color.css'
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-size.css'
-```
-
-### Use variables as needed
-
-SCSS
-
-```scss
-.class-with-primary-text-color: { color: $color.brand.primary.base; }
-$my-own-shadow-variable: 1rem 1rem $color.base.black;
-```
-
-CSS
-
-```css
-.class-with-primary-text-color: { color: var(--color.brand.primary.base); }
---my-own-shadow-variable: 1rem 1rem var(--color.base.black);
-```
-
-### Using Icons
-
-The library includes custom svg icons from the design system. They are provided in two formats, `svg` or as React components.
-
-They can be pulled from the build here:
-
-```text
-@hyphen/hyphen-design-tokens/build/icons/svg // <-- SVG ICONS
-@hyphen/hyphen-design-tokens/build/icons/svg // <-- React Components. NOTE: there is an index file that maps all icons in a dictionary, but they can also be used individually.
-```
-
-USING RAW SVGs
-
-```html
-<img src="../user.svg" alt="user">
-```
-
-USING REACT COMPONENTS
-
-```react
-import UserIcon from '@hyphen/hyphen-design-tokens/build/icons/react/UserIcon'; <-- Single Icon Import
-
-// or
-import icons from '@hyphen/hyphen-design-tokens/build/icons/react; <-- Icon map
-
-const MyUserIcon = icons['user']; <-- Use icon name to.
-
-<MyUserIcon {...props} />
-
-
-// All icon names are documented in the IconName union type.
-import { IconName } from '@hyphen/hyphen-design-tokens/build/types';
-```
-
-## Available Tokens
-
-* Color
-  * Brand
-  * Font
-  * Border
-* Size
-  * Border
-  * Border Radius
-  * Breakpoint
-  * Spacing
-  * Font
-  * Width
-  * Height
-  * Box Shadow
-  * Opacity
-  * Z-Index
-  * Line-Height
-
-## Local Development
-
-To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
-
-In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
-
-## Update Tokens via file
-
-TDB
-
-## Updating Tokens via Figma
-
-While style-dictionary typically builds tokens off of raw JSON files, in our case we are actually pulling token names and values directly from a Figma file
-so visual designers can make changes and publish them as tokens. The build process will read the file (The id is a constant in the `build.js` file).
-
-In order to make changes to tokens, you'll need to open the [Design Tokens](https://www.figma.com/file/abGRptpr7iPaMsXdEPVm6W/Design-Tokens) file. Once you've made your changes, Save a new Version of the file in Figma by going to the hamburger menu --> File --> Save to version history...
-
-This will create a new version of the same file. The File ID will remain the same, but you should now be able to go to your file version, and extract the version ID from the URL in the browser. Replace the existing `FIGMA_FILE_VERSION` constant in `build.js` and run a build to confirm that your version is working correctly.
-
-## Updating Icons
-
-The build process handles the following:
-
-* mapping any svg icons in the `/icons` folder into the appropriate build directory
-* updating the `IconName` type based on the file names in the directory.
-* Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
-* Regenerating the icons index map for use in react applications.
-
-As a developer, to update icons all that needs to be done is add them to the `/icons` folder with the name that you want the icon to have. Please follow
-these rules when exporting and adding icons:
-
-* SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
-* SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
-* SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
-* Remove any `classNames` or `title` that might be in the svg file
-* SVG files should be named using `kebab-case`.
-* Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
-* Open a pull request and get it approved for publishing
-
-## Releases
-
-[↥ back to top](#top)
-
-hyphen Components uses the [semantic-release](https://github.com/semantic-release/semantic-release) npm package to fully automate the release workflow. Instead of manually updating the release version in `package.json`, and creating a new release tag in GitHub for each release, they are automatically triggered by prefixing the commit message when merging to `main`. Upon triggering a release, the package version is bumped depending on the type specified, a release tag is created in GitHub, and the new version is automatically published to [npm](https://www.npmjs.com/).
-
-For example, opening a PR to main with the commit message `fix: Resolve bug`, will trigger a minor release and bump the package's version from `0.0.0` to `0.0.1`. Opening a PR with `feat(Table): Finalize tests` will trigger a feature release and bump the package's version from `0.0.0` to `0.1.0`.
-
-The link above provides full documentation for this workflow. However, a comprehensive list of the prefix types, and their intended uses are provide below for quick reference:
-
-### Release Types
-
-Must be one of the following:
-
-### Major
-
-* **BREAKING CHANGE**: A set of breaking changes.
-
-### Minor
-
-* **feat**: A new feature
-
-### Patch
-
-* **fix**: A bug fix
-* **perf**: A code change that improves performance
-* **ci**: A change to our CI pipelines/workflows.
-* **build**: A change to the library build process (That does not break the consumer API).
-* **test**: Added or improved testing in some area of the library.
-* **refactor**: Changed code structure without affecting features.
-* **docs**: Added to, or improved documentation.
-* **style**: Change in code style without affecting features.
-
-### Prerelease
-
-If your code includes major changes or any breaking changes to the codebase, I.E, a new major version, or a large refactor, that will require a pre-release,
-and more extensive testing. To publish a pre-release, open (and eventually merge) your PR against the `beta` branch. This will
-publish the package with a @beta tag which can then be easily consumed and tested by other consumers locally.
+Now go forth and create! Take a look at all the built-in [transforms](https://amzn.github.io/style-dictionary/#/transforms?id=pre-defined-transforms) and [formats](https://amzn.github.io/style-dictionary/#/formats?id=pre-defined-formats).
