@@ -1,0 +1,15 @@
+{
+  "assets": {
+    "font-family": {
+      "monospace": {
+        "value": "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace"
+      },
+      "body": {
+        "value": "'avenir', 'avenir next', 'lato', sans-serif"
+      },
+      "brand": {
+        "value": "'avenir', 'avenir next', 'lato', sans-serif"
+      }
+    }
+  }
+}

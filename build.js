@@ -31,6 +31,50 @@ function darkFormatWrapper(format) {
   };
 }
 
+StyleDictionary.registerTransform({
+  name: 'size/breakpoint',
+  type: 'value',
+  matcher: function (token) {
+    return (
+      token.attributes.category === 'size' &&
+      token.attributes.type === 'breakpoint'
+    );
+  },
+  transformer: function (token) {
+    return parseInt(token.original.value).toString() + 'px';
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'size/unitless',
+  type: 'value',
+  matcher: function (token) {
+    return (
+      token.attributes.type === 'z-index' ||
+      token.attributes.type === 'line-height' ||
+      token.attributes.type === 'box-shadow'
+    );
+  },
+  transformer: function (token) {
+    return token.original.value.toString();
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'size/percentage',
+  type: 'value',
+  matcher: function (token) {
+    return (
+      token.attributes.type === 'border' &&
+      token.attributes.item === 'radius' &&
+      token.attributes.subitem === 'circle'
+    );
+  },
+  transformer: function (token) {
+    return parseInt(token.original.value).toString() + '%';
+  },
+});
+
 StyleDictionary.extend({
   source: ['tokens/**/*.json'],
 
@@ -40,7 +84,15 @@ StyleDictionary.extend({
 
   platforms: {
     web: {
-      transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'size/rem'],
+      transforms: [
+        'attribute/cti',
+        'name/cti/kebab',
+        'color/css',
+        'size/rem',
+        'size/breakpoint',
+        'size/unitless',
+        'size/percentage',
+      ],
       buildPath: 'build/css/',
       files: [
         {

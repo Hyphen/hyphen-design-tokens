@@ -1,0 +1,39 @@
+{
+  "size": {
+    "heading": {
+      "sm": {
+        "value": "1"
+      },
+      "md": {
+        "value": "1.25"
+      },
+      "lg": {
+        "value": "1.5"
+      },
+      "xl": {
+        "value": "1.25"
+      },
+      "2xl": {
+        "value": "2"
+      },
+      "3xl": {
+        "value": "2.5"
+      },
+      "4xl": {
+        "value": "3"
+      },
+      "5xl": {
+        "value": "3.5"
+      },
+      "6xl": {
+        "value": "4"
+      },
+      "7xl": {
+        "value": "4.5"
+      },
+      "base": {
+        "value": "{size.heading.md.value}"
+      }
+    }
+  }
+}
