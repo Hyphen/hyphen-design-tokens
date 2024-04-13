@@ -3,27 +3,31 @@
     "background": {
       "primary": {
         "value": "ffffff",
-        "darkValue": "{color.base.grey.900.value}"
+        "darkValue": "{color.base.grey.700.value}"
       },
       "secondary": {
         "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.800.value}"
       },
+      "tertiary": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.900.value}"
+      },
       "success": {
-        "value": "{color.base.green.100.value}",
-        "darkValue": "{color.base.green.800.value}"
+        "value": "{color.base.green.50.value}",
+        "darkValue": "{color.base.green.50.value}"
       },
       "danger": {
-        "value": "{color.base.red.100.value}",
-        "darkValue": "{color.base.red.100.value}"
+        "value": "{color.base.red.50.value}",
+        "darkValue": "{color.base.red.50.value}"
       },
       "warning": {
-        "value": "{color.base.yellow.100.value}",
-        "darkValue": "{color.base.yellow.100.value}"
+        "value": "{color.base.yellow.50.value}",
+        "darkValue": "{color.base.yellow.50.value}"
       },
       "info": {
-        "value": "{color.base.blue.100.value}",
-        "darkValue": "{color.base.blue.100.value}"
+        "value": "{color.base.blue.50.value}",
+        "darkValue": "{color.base.blue.50.value}"
       }
     }
   }

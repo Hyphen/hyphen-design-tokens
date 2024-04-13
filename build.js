@@ -1,10 +1,14 @@
 const StyleDictionary = require('style-dictionary');
+const fs = require('fs-extra');
 
 const utilityClass = require('./formats/utilityClass/utilityClass');
 
+const webPath = `build/css/`;
+
 // before this runs we should clean the directories we are generating files in
 // to make sure they are ✨clean✨
-// TODO
+console.log(`cleaning ${webPath}...`);
+fs.removeSync(webPath);
 
 /**
  * This function will wrap a built-in format and replace `.value` with `.darkValue`
@@ -16,11 +20,15 @@ function darkFormatWrapper(format) {
   return function (args) {
     const dictionary = Object.assign({}, args.dictionary);
     // Override each token's `value` with `darkValue`
-    dictionary.allProperties = dictionary.allProperties.map(token => {
+    dictionary.allTokens = dictionary.allTokens.map(token => {
       const { darkValue } = token;
       if (darkValue) {
         return Object.assign({}, token, {
           value: token.darkValue,
+          original: {
+            value: token.darkValue,
+            darkValue: token.darkValue,
+          },
         });
       } else {
         return token;
@@ -75,7 +83,7 @@ StyleDictionary.extend({
   },
 
   platforms: {
-    web: {
+    css: {
       transforms: [
         'attribute/cti',
         'name/cti/kebab',
@@ -84,7 +92,7 @@ StyleDictionary.extend({
         'size/breakpoint',
         'size/unitless',
       ],
-      buildPath: 'build/css/',
+      buildPath: webPath,
       files: [
         {
           destination: '_variables.css',
@@ -150,20 +158,20 @@ StyleDictionary.extend({
         },
       ],
     },
-    android: {
-      transformGroup: 'android',
-      buildPath: 'build/android/',
-      files: [
-        {
-          destination: 'font_dimens.xml',
-          format: 'android/fontDimens',
-        },
-        {
-          destination: 'colors.xml',
-          format: 'android/colors',
-        },
-      ],
-    },
+    // android: {
+    //   transformGroup: 'android',
+    //   buildPath: 'build/android/',
+    //   files: [
+    //     {
+    //       destination: 'font_dimens.xml',
+    //       format: 'android/fontDimens',
+    //     },
+    //     {
+    //       destination: 'colors.xml',
+    //       format: 'android/colors',
+    //     },
+    //   ],
+    // },
     ios: {
       transformGroup: 'ios',
       buildPath: 'build/ios/',
@@ -214,61 +222,61 @@ StyleDictionary.extend({
         },
       ],
     },
-    'ios-swift': {
-      transformGroup: 'ios-swift',
-      buildPath: 'build/ios-swift/',
-      files: [
-        {
-          destination: 'StyleDictionary+Class.swift',
-          format: 'ios-swift/class.swift',
-          className: 'StyleDictionaryClass',
-          filter: {},
-        },
-        {
-          destination: 'StyleDictionary+Enum.swift',
-          format: 'ios-swift/enum.swift',
-          className: 'StyleDictionaryEnum',
-          filter: {},
-        },
-        {
-          destination: 'StyleDictionary+Struct.swift',
-          format: 'ios-swift/any.swift',
-          className: 'StyleDictionaryStruct',
-          filter: {},
-          options: {
-            imports: 'SwiftUI',
-            objectType: 'struct',
-            accessControl: 'internal',
-          },
-        },
-      ],
-    },
-    'ios-swift-separate-enums': {
-      transformGroup: 'ios-swift-separate',
-      buildPath: 'build/ios-swift/',
-      files: [
-        {
-          destination: 'StyleDictionaryColor.swift',
-          format: 'ios-swift/enum.swift',
-          className: 'StyleDictionaryColor',
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-        {
-          destination: 'StyleDictionarySize.swift',
-          format: 'ios-swift/enum.swift',
-          className: 'StyleDictionarySize',
-          filter: {
-            attributes: {
-              category: 'size',
-            },
-          },
-        },
-      ],
-    },
+    // 'ios-swift': {
+    //   transformGroup: 'ios-swift',
+    //   buildPath: 'build/ios-swift/',
+    //   files: [
+    //     {
+    //       destination: 'StyleDictionary+Class.swift',
+    //       format: 'ios-swift/class.swift',
+    //       className: 'StyleDictionaryClass',
+    //       filter: {},
+    //     },
+    //     {
+    //       destination: 'StyleDictionary+Enum.swift',
+    //       format: 'ios-swift/enum.swift',
+    //       className: 'StyleDictionaryEnum',
+    //       filter: {},
+    //     },
+    //     {
+    //       destination: 'StyleDictionary+Struct.swift',
+    //       format: 'ios-swift/any.swift',
+    //       className: 'StyleDictionaryStruct',
+    //       filter: {},
+    //       options: {
+    //         imports: 'SwiftUI',
+    //         objectType: 'struct',
+    //         accessControl: 'internal',
+    //       },
+    //     },
+    //   ],
+    // },
+    // 'ios-swift-separate-enums': {
+    //   transformGroup: 'ios-swift-separate',
+    //   buildPath: 'build/ios-swift/',
+    //   files: [
+    //     {
+    //       destination: 'StyleDictionaryColor.swift',
+    //       format: 'ios-swift/enum.swift',
+    //       className: 'StyleDictionaryColor',
+    //       filter: {
+    //         attributes: {
+    //           category: 'color',
+    //         },
+    //       },
+    //     },
+    //     {
+    //       destination: 'StyleDictionarySize.swift',
+    //       format: 'ios-swift/enum.swift',
+    //       className: 'StyleDictionarySize',
+    //       filter: {
+    //         attributes: {
+    //           category: 'size',
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
   },
 }).buildAllPlatforms();
 

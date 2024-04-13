@@ -44,8 +44,8 @@ const fontColorOptions = [].concat.apply(
  */
 const size = designTokens.size;
 
-const borderSizeOptions = Object.keys(size.border.width);
-const borderRadiusSizeOptions = Object.keys(size.border.radius);
+const borderWidthOptions = Object.keys(size['border-width']);
+const borderRadiusSizeOptions = Object.keys(size['border-radius']);
 const boxShadowSizeOptions = Object.keys(size['box-shadow']);
 const breakpointSizeOptions = Object.keys(size.breakpoint);
 const fontSizeOptions = Object.keys(size.font.size);
@@ -56,7 +56,7 @@ const lineHeightSizeOptions = Object.keys(size['line-height']);
 const spacingSizeOptions = Object.keys(size.spacing);
 const zIndexSizeOptions = Object.keys(size['z-index']);
 
-const BORDER_SIZES = 'BORDER_SIZES';
+const BORDER_WIDTHS = 'BORDER_WIDTHS';
 const BORDER_RADIUS_SIZES = 'BORDER_RADIUS_SIZES';
 const BOX_SHADOW_SIZES = 'BOX_SHADOW_SIZES';
 const BREAKPOINT_SIZES = 'BREAKPOINT_SIZES';
@@ -137,7 +137,7 @@ const createColorTokens = currentFile => {
 const createSizeTokens = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeArray(borderSizeOptions, BORDER_SIZES));
+  result = result.concat(writeArray(borderWidthOptions, BORDER_WIDTHS));
   result = result.concat(
     writeArray(borderRadiusSizeOptions, BORDER_RADIUS_SIZES),
   );
@@ -195,7 +195,7 @@ const createSizeTypes = currentFile => {
   let result = currentFile;
 
   result = result.concat(
-    writeExport(writeUnionTypeFromArray('BorderSize', BORDER_SIZES)),
+    writeExport(writeUnionTypeFromArray('BorderSize', BORDER_WIDTHS)),
   );
   result = result.concat(
     writeExport(

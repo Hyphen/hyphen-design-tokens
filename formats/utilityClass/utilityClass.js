@@ -21,7 +21,7 @@ const generateShorthandProperties = (utility, prop, variation) => {
   // For specific sides of an element
   if (single.includes(variation)) {
     if (property === `border`) {
-      output = `${property}-${variation}-width: ${value}; ${property}-${variation}-style: solid;`;
+      output = `border-${variation}-width: ${value}; ${property}-${variation}-style: solid;`;
     } else {
       property += `-${variation}`;
       output = `${property}: ${value};`;

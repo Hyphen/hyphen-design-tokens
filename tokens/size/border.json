@@ -1,22 +1,20 @@
 {
   "size": {
-    "border": {
-      "width": {
-        "0": { "value": 0 },
-        "sm": { "value": 0.0625 },
-        "md": { "value": 0.125 },
-        "lg": { "value": 0.25 }
-      },
-      "radius": {
-        "0": { "value": 0 },
-        "xs": { "value": 0.125 },
-        "sm": { "value": 0.25 },
-        "md": { "value": 0.5 },
-        "lg": { "value": 0.625 },
-        "xl": { "value": 1 },
-        "2xl": { "value": 1.25 },
-        "3xl": { "value": 2 }
-      }
+    "border-width": {
+      "0": { "value": 0 },
+      "sm": { "value": 0.0625 },
+      "md": { "value": 0.125 },
+      "lg": { "value": 0.25 }
+    },
+    "border-radius": {
+      "0": { "value": 0 },
+      "xs": { "value": 0.125 },
+      "sm": { "value": 0.25 },
+      "md": { "value": 0.5 },
+      "lg": { "value": 0.625 },
+      "xl": { "value": 1 },
+      "2xl": { "value": 1.25 },
+      "3xl": { "value": 2 }
     }
   }
 }

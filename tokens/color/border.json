@@ -6,16 +6,20 @@
         "darkValue": "{color.base.grey.700.value}"
       },
       "danger": {
-        "value": "{color.base.red.200.value}",
+        "value": "{color.base.red.300.value}",
         "darkValue": "{color.base.red.200.value}"
       },
       "warning": {
-        "value": "{color.base.yellow.200.value}",
+        "value": "{color.base.yellow.300.value}",
         "darkValue": "{color.base.yellow.200.value}"
       },
       "inverse": {
         "value": "{color.base.grey.700.value}",
         "darkValue": "{color.base.grey.200.value}"
+      },
+      "info": {
+        "value": "{color.base.blue.200.value}",
+        "darkValue": "{color.base.blue.200.value}"
       }
     }
   }
