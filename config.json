@@ -18,12 +18,12 @@
       ]
     },
     "json": {
-      "transformGroup": "js",
+      "transformGroup": "json",
       "buildPath": "build/json/",
       "files": [
         {
           "destination": "_variables.json",
-          "format": "javascript/module"
+          "format": "javascript/json"
         }
       ]
     },

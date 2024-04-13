@@ -2,7 +2,7 @@
   "color": {
     "background": {
       "primary": {
-        "value": "{color.base.white.value}",
+        "value": "ffffff",
         "darkValue": "{color.base.grey.900.value}"
       },
       "secondary": {

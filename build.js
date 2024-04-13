@@ -1,5 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 
+const utilityClass = require('./formats/utilityClass/utilityClass');
+
 // before this runs we should clean the directories we are generating files in
 // to make sure they are ✨clean✨
 // TODO
@@ -52,7 +54,10 @@ StyleDictionary.registerTransform({
     return (
       token.attributes.type === 'z-index' ||
       token.attributes.type === 'line-height' ||
-      token.attributes.type === 'box-shadow'
+      token.attributes.type === 'box-shadow' ||
+      (token.attributes.category === 'size' &&
+        token.attributes.type === 'spacing' &&
+        token.attributes.item === 'auto')
     );
   },
   transformer: function (token) {
@@ -60,20 +65,7 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'size/percentage',
-  type: 'value',
-  matcher: function (token) {
-    return (
-      token.attributes.type === 'border' &&
-      token.attributes.item === 'radius' &&
-      token.attributes.subitem === 'circle'
-    );
-  },
-  transformer: function (token) {
-    return parseInt(token.original.value).toString() + '%';
-  },
-});
+StyleDictionary.registerFormat(utilityClass);
 
 StyleDictionary.extend({
   source: ['tokens/**/*.json'],
@@ -91,7 +83,6 @@ StyleDictionary.extend({
         'size/rem',
         'size/breakpoint',
         'size/unitless',
-        'size/percentage',
       ],
       buildPath: 'build/css/',
       files: [
@@ -107,13 +98,29 @@ StyleDictionary.extend({
         },
       ],
     },
+    cssUtilities: {
+      buildPath: 'build/utilities/',
+      transforms: [
+        'attribute/cti',
+        'name/cti/kebab',
+        'time/seconds',
+        'content/icon',
+        'color/css',
+      ],
+      files: [
+        {
+          destination: 'utilities.css',
+          format: 'css/utility-classes',
+        },
+      ],
+    },
     json: {
       transformGroup: 'js',
       buildPath: 'build/json/',
       files: [
         {
           destination: '_variables.json',
-          format: 'javascript/module',
+          format: 'json',
         },
       ],
     },
@@ -264,3 +271,11 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
+// From the built dictionary, generate constants of all token options.
+// File can't be required at the top since build files are a dependency for this function
+// and they do not exist until the style dictionary is built.
+const generateTokenTypes = require('./formats/utilityClass/utils/generateTokenTypes/generateTokenTypes');
+generateTokenTypes();
+console.log('\n==============================================');
+console.log('\nToken types generated!');

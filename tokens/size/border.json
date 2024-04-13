@@ -15,8 +15,7 @@
         "lg": { "value": 0.625 },
         "xl": { "value": 1 },
         "2xl": { "value": 1.25 },
-        "3xl": { "value": 2 },
-        "circle": { "value": 50 }
+        "3xl": { "value": 2 }
       }
     }
   }

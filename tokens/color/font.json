@@ -16,6 +16,10 @@
       "disabled": {
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.400.value}"
+      },
+      "danger": {
+        "value": "{color.base.red.600.value}",
+        "darkValue": "{color.base.red.600.value}"
       }
     }
   }
