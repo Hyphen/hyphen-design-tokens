@@ -60,6 +60,7 @@ StyleDictionary.registerTransform({
   type: 'value',
   matcher: function (token) {
     return (
+      token.attributes.type === 'font-weight' ||
       token.attributes.type === 'z-index' ||
       token.attributes.type === 'line-height' ||
       token.attributes.type === 'box-shadow' ||

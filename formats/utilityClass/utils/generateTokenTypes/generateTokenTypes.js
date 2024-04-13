@@ -15,9 +15,22 @@ const designTokens = require('../../../../build/json/_variables.json');
  * COLORS
  */
 const baseColors = designTokens.color.base;
+const borderColors = designTokens.color.border;
+const backgroundColors = designTokens.color.background;
+const fontColors = designTokens.color.font;
 const BASE_COLORS = 'BASE_COLORS';
+const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
+const BORDER_COLORS = 'BORDER_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
 const BASE_COLOR_NAMES = 'BASE_COLOR_NAMES';
+const BACKGROUND_COLOR_NAMES = 'BACKGROUND_COLOR_NAMES';
+const BORDER_COLOR_NAMES = 'BORDER_COLOR_NAMES';
+const FONT_COLOR_NAMES = 'FONT_COLOR_NAMES';
+
+const baseColorNames = Object.keys(baseColors);
+const backgroundColorNames = Object.keys(backgroundColors);
+const borderColorNames = Object.keys(borderColors);
+const fontColorNames = Object.keys(fontColors);
 
 const baseColorOptions = [].concat.apply(
   [],
@@ -27,16 +40,17 @@ const baseColorOptions = [].concat.apply(
     ),
   ),
 );
-
-const baseColorNames = Object.keys(baseColors);
-
+const backgroundColorOptions = [].concat.apply(
+  [],
+  Object.keys(backgroundColors).map(colorName => colorName),
+);
+const borderColorOptions = [].concat.apply(
+  [],
+  Object.keys(borderColors).map(colorName => colorName),
+);
 const fontColorOptions = [].concat.apply(
   [],
-  Object.keys(baseColors).map(colorName =>
-    Object.keys(baseColors[colorName]).map(colorGrade =>
-      colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+  Object.keys(fontColors).map(colorName => colorName),
 );
 
 /**
@@ -127,9 +141,20 @@ const createColorTokens = currentFile => {
     writeExport(writeArray(baseColorOptions, BASE_COLORS)),
   );
   result = result.concat(
+    writeExport(writeArray(backgroundColorOptions, BACKGROUND_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeArray(borderColorOptions, BORDER_COLORS)),
+  );
+  result = result.concat(
     writeExport(writeArray(fontColorOptions, FONT_COLORS)),
   );
   result = result.concat(writeArray(baseColorNames, BASE_COLOR_NAMES));
+  result = result.concat(
+    writeArray(backgroundColorNames, BACKGROUND_COLOR_NAMES),
+  );
+  result = result.concat(writeArray(borderColorNames, BORDER_COLOR_NAMES));
+  result = result.concat(writeArray(fontColorNames, FONT_COLOR_NAMES));
 
   return result;
 };
@@ -180,6 +205,12 @@ const createColorTypes = currentFile => {
 
   result = result.concat(
     writeExport(writeUnionTypeFromArray('BaseColor', BASE_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BackgroundColor', BACKGROUND_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BorderColor', BORDER_COLORS)),
   );
   result = result.concat(
     writeExport(writeUnionTypeFromArray('FontColor', FONT_COLORS)),
