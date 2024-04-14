@@ -14,10 +14,12 @@ const designTokens = require('../../../../build/json/_variables.json');
 /**
  * COLORS
  */
-const baseColors = designTokens.color.base;
-const borderColors = designTokens.color.border;
-const backgroundColors = designTokens.color.background;
-const fontColors = designTokens.color.font;
+const color = designTokens.color;
+
+const baseColors = color.base;
+const borderColors = color.border;
+const backgroundColors = color.background;
+const fontColors = color.font;
 const BASE_COLORS = 'BASE_COLORS';
 const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
 const BORDER_COLORS = 'BORDER_COLORS';
@@ -62,8 +64,8 @@ const borderWidthOptions = Object.keys(size['border-width']);
 const borderRadiusSizeOptions = Object.keys(size['border-radius']);
 const boxShadowSizeOptions = Object.keys(size['box-shadow']);
 const breakpointSizeOptions = Object.keys(size.breakpoint);
-const fontSizeOptions = Object.keys(size.font.size);
-const fontWeightOptions = Object.keys(size.font.weight);
+const fontSizeOptions = Object.keys(size['font-size']);
+const fontWeightOptions = Object.keys(size['font-weight']);
 const fontHeadingOptions = Object.keys(size.heading);
 const lineHeightSizeOptions = Object.keys(size['line-height']);
 // const opacitySizeOptions = Object.keys(size.opacity);
@@ -162,19 +164,33 @@ const createColorTokens = currentFile => {
 const createSizeTokens = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeArray(borderWidthOptions, BORDER_WIDTHS));
   result = result.concat(
-    writeArray(borderRadiusSizeOptions, BORDER_RADIUS_SIZES),
+    writeExport(writeArray(borderWidthOptions, BORDER_WIDTHS)),
   );
-  result = result.concat(writeArray(boxShadowSizeOptions, BOX_SHADOW_SIZES));
-  result = result.concat(writeArray(breakpointSizeOptions, BREAKPOINT_SIZES));
-  result = result.concat(writeArray(fontSizeOptions, FONT_SIZES));
-  result = result.concat(writeArray(fontWeightOptions, FONT_WEIGHTS));
-  // result = result.concat(writeArray(headingOptions, HEADING));
-  result = result.concat(writeArray(lineHeightSizeOptions, LINE_HEIGHT_SIZES));
-  // result = result.concat(writeArray(opacitySizeOptions, OPACITY_SIZES));
-  result = result.concat(writeArray(spacingSizeOptions, SPACING_SIZES));
-  result = result.concat(writeArray(zIndexSizeOptions, Z_INDEX_SIZES));
+  result = result.concat(
+    writeExport(writeArray(borderRadiusSizeOptions, BORDER_RADIUS_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeArray(boxShadowSizeOptions, BOX_SHADOW_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeArray(breakpointSizeOptions, BREAKPOINT_SIZES)),
+  );
+  result = result.concat(writeExport(writeArray(fontSizeOptions, FONT_SIZES)));
+  result = result.concat(
+    writeExport(writeArray(fontWeightOptions, FONT_WEIGHTS)),
+  );
+  // result = result.concat(writeExport(writeArray(headingOptions, HEADING)));
+  result = result.concat(
+    writeExport(writeArray(lineHeightSizeOptions, LINE_HEIGHT_SIZES)),
+  );
+  // result = result.concat(writeExport(writeArray(opacitySizeOptions, OPACITY_SIZES)));
+  result = result.concat(
+    writeExport(writeArray(spacingSizeOptions, SPACING_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeArray(zIndexSizeOptions, Z_INDEX_SIZES)),
+  );
 
   return result;
 };

@@ -28,6 +28,10 @@
       "info": {
         "value": "{color.base.blue.50.value}",
         "darkValue": "{color.base.blue.50.value}"
+      },
+      "inverse": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.100.value}"
       }
     }
   }

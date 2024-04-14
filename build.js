@@ -74,6 +74,20 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'size/percentage',
+  type: 'value',
+  matcher: function (token) {
+    return (
+      token.attributes.category === 'size' &&
+      token.attributes.type === 'percentage'
+    );
+  },
+  transformer: function (token) {
+    return parseInt(token.original.value).toString() + '%';
+  },
+});
+
 StyleDictionary.registerFormat(utilityClass);
 
 StyleDictionary.extend({
@@ -92,6 +106,7 @@ StyleDictionary.extend({
         'size/rem',
         'size/breakpoint',
         'size/unitless',
+        'size/percentage',
       ],
       buildPath: webPath,
       files: [

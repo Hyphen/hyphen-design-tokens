@@ -15,11 +15,19 @@
       },
       "disabled": {
         "value": "{color.base.grey.300.value}",
-        "darkValue": "{color.base.grey.400.value}"
+        "darkValue": "{color.base.grey.500.value}"
+      },
+      "success": {
+        "value": "{color.base.green.600.value}",
+        "darkValue": "{color.base.green.500.value}"
+      },
+      "warn": {
+        "value": "{color.base.yellow.600.value}",
+        "darkValue": "{color.base.yellow.500.value}"
       },
       "danger": {
         "value": "{color.base.red.600.value}",
-        "darkValue": "{color.base.red.600.value}"
+        "darkValue": "{color.base.red.500.value}"
       }
     }
   }
