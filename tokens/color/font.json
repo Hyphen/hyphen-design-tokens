@@ -29,6 +29,10 @@
         "value": "{color.base.green.200.value}",
         "darkValue": "{color.base.green.500.value}"
       },
+      "info": {
+        "value": "{color.base.blue.600.value}",
+        "darkValue": "{color.base.blue.500.value}"
+      },
       "warn": {
         "value": "{color.base.yellow.600.value}",
         "darkValue": "{color.base.yellow.500.value}"
