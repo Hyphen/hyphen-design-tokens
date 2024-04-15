@@ -25,13 +25,25 @@
         "value": "{color.base.green.600.value}",
         "darkValue": "{color.base.green.500.value}"
       },
+      "success-disabled": {
+        "value": "{color.base.green.200.value}",
+        "darkValue": "{color.base.green.500.value}"
+      },
       "warn": {
         "value": "{color.base.yellow.600.value}",
         "darkValue": "{color.base.yellow.500.value}"
       },
+      "warn-disabled": {
+        "value": "{color.base.yellow.200.value}",
+        "darkValue": "{color.base.yellow.200.value}"
+      },
       "danger": {
         "value": "{color.base.red.600.value}",
         "darkValue": "{color.base.red.500.value}"
+      },
+      "danger-disabled": {
+        "value": "{color.base.red.200.value}",
+        "darkValue": "{color.base.red.200.value}"
       },
       "button-primary": {
         "value": "{color.base.white}",
