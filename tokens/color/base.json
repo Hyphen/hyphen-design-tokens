@@ -7,6 +7,9 @@
       "white": {
         "value": "#FFFFFF"
       },
+      "magenta": {
+        "value": "#FA0A64"
+      },
       "primary": {
         "50": {
           "value": "#E9E9E9"
