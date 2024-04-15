@@ -36,11 +36,19 @@ const fontColorNames = Object.keys(fontColors);
 
 const baseColorOptions = [].concat.apply(
   [],
-  Object.keys(baseColors).map(colorName =>
-    Object.keys(baseColors[colorName]).map(colorGrade =>
+  Object.keys(baseColors).map(colorName => {
+    if (
+      colorName === 'white' ||
+      colorName === 'black' ||
+      colorName === 'magenta'
+    ) {
+      return colorName;
+    }
+
+    return Object.keys(baseColors[colorName]).map(colorGrade =>
       colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+    );
+  }),
 );
 const backgroundColorOptions = [].concat.apply(
   [],
