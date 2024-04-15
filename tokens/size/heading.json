@@ -11,28 +11,22 @@
         "value": "1.5"
       },
       "xl": {
-        "value": "1.25"
-      },
-      "2xl": {
         "value": "2"
       },
-      "3xl": {
+      "2xl": {
         "value": "2.5"
       },
-      "4xl": {
+      "3xl": {
         "value": "3"
       },
-      "5xl": {
+      "4xl": {
         "value": "3.5"
       },
-      "6xl": {
+      "5xl": {
         "value": "4"
       },
-      "7xl": {
+      "6xl": {
         "value": "4.5"
-      },
-      "base": {
-        "value": "{size.heading.md.value}"
       }
     }
   }

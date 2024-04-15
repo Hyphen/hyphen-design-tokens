@@ -22,7 +22,7 @@ const utilities = [
   {
     name: 'font-color',
     tokenCategory: 'color',
-    tokenType: 'font-color',
+    tokenType: 'font',
     cssProp: 'color',
     variations: [''],
     responsive: false,
@@ -57,6 +57,16 @@ const utilities = [
     variations: [''],
     responsive: true,
     hover: false,
+    focus: false,
+  },
+  {
+    name: 'heading',
+    tokenCategory: 'size',
+    tokenType: 'heading',
+    cssProp: 'font-size',
+    variations: [''],
+    responsive: true,
+    hover: true,
     focus: false,
   },
   {

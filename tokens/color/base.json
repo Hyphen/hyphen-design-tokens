@@ -1,6 +1,9 @@
 {
   "color": {
     "base": {
+      "white": {
+        "value": "#FFFFFF"
+      },
       "primary": {
         "50": {
           "value": "#E9E9E9"

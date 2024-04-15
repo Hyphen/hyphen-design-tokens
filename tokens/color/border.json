@@ -28,6 +28,30 @@
       "info": {
         "value": "{color.base.blue.200.value}",
         "darkValue": "{color.base.blue.200.value}"
+      },
+      "button-secondary": {
+        "value": "{color.base.primary.100.value}",
+        "darkValue": "{color.base.primary.400.value}"
+      },
+      "button-secondary-hover": {
+        "value": "{color.base.primary.100.value}",
+        "darkValue": "{color.base.primary.400.value}"
+      },
+      "button-secondary-active": {
+        "value": "{color.base.primary.200.value}",
+        "darkValue": "{color.base.primary.400.value}"
+      },
+      "button-tertiary": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-tertiary-hover": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-tertiary-active": {
+        "value": "transparent",
+        "darkValue": "transparent"
       }
     }
   }

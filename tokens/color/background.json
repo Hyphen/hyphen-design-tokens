@@ -2,7 +2,7 @@
   "color": {
     "background": {
       "primary": {
-        "value": "ffffff",
+        "value": "{color.base.white.value}",
         "darkValue": "{color.base.grey.700.value}"
       },
       "secondary": {
@@ -32,6 +32,58 @@
       "inverse": {
         "value": "{color.base.grey.700.value}",
         "darkValue": "{color.base.grey.100.value}"
+      },
+      "transparent": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-primary": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white.value}"
+      },
+      "button-primary-hover": {
+        "value": "{color.base.primary.400.value}",
+        "darkValue": "{color.base.primary.50.value}"
+      },
+      "button-primary-active": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white.value}"
+      },
+      "button-secondary": {
+        "value": "{color.base.white.value}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-secondary-hover": {
+        "value": "{color.base.primary.50.value}",
+        "darkValue": "{color.base.primary.400.value}"
+      },
+      "button-secondary-active": {
+        "value": "{color.base.primary.100.value}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-tertiary": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-tertiary-hover": {
+        "value": "{color.base.primary.50.value}",
+        "darkValue": "{color.base.primary.400.value}"
+      },
+      "button-tertiary-active": {
+        "value": "{color.base.primary.100.value}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-danger": {
+        "value": "{color.base.red.500.value}",
+        "darkValue": "{color.base.red.500.value}"
+      },
+      "button-danger-hover": {
+        "value": "{color.base.red.600.value}",
+        "darkValue": "{color.base.red.600.value}"
+      },
+      "button-danger-active": {
+        "value": "{color.base.red.700.value}",
+        "darkValue": "{color.base.red.700.value}"
       }
     }
   }

@@ -63,10 +63,7 @@ StyleDictionary.registerTransform({
       token.attributes.type === 'font-weight' ||
       token.attributes.type === 'z-index' ||
       token.attributes.type === 'line-height' ||
-      token.attributes.type === 'box-shadow' ||
-      (token.attributes.category === 'size' &&
-        token.attributes.type === 'spacing' &&
-        token.attributes.item === 'auto')
+      token.attributes.type === 'box-shadow'
     );
   },
   transformer: function (token) {
@@ -105,8 +102,8 @@ StyleDictionary.extend({
         'color/css',
         'size/rem',
         'size/breakpoint',
-        'size/unitless',
         'size/percentage',
+        'size/unitless',
       ],
       buildPath: webPath,
       files: [
@@ -188,56 +185,56 @@ StyleDictionary.extend({
     //     },
     //   ],
     // },
-    ios: {
-      transformGroup: 'ios',
-      buildPath: 'build/ios/',
-      files: [
-        {
-          destination: 'StyleDictionaryColor.h',
-          format: 'ios/colors.h',
-          className: 'StyleDictionaryColor',
-          type: 'StyleDictionaryColorName',
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-        {
-          destination: 'StyleDictionaryColor.m',
-          format: 'ios/colors.m',
-          className: 'StyleDictionaryColor',
-          type: 'StyleDictionaryColorName',
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-        {
-          destination: 'StyleDictionarySize.h',
-          format: 'ios/static.h',
-          className: 'StyleDictionarySize',
-          type: 'float',
-          filter: {
-            attributes: {
-              category: 'size',
-            },
-          },
-        },
-        {
-          destination: 'StyleDictionarySize.m',
-          format: 'ios/static.m',
-          className: 'StyleDictionarySize',
-          type: 'float',
-          filter: {
-            attributes: {
-              category: 'size',
-            },
-          },
-        },
-      ],
-    },
+    // ios: {
+    //   transformGroup: 'ios',
+    //   buildPath: 'build/ios/',
+    //   files: [
+    //     {
+    //       destination: 'StyleDictionaryColor.h',
+    //       format: 'ios/colors.h',
+    //       className: 'StyleDictionaryColor',
+    //       type: 'StyleDictionaryColorName',
+    //       filter: {
+    //         attributes: {
+    //           category: 'color',
+    //         },
+    //       },
+    //     },
+    //     {
+    //       destination: 'StyleDictionaryColor.m',
+    //       format: 'ios/colors.m',
+    //       className: 'StyleDictionaryColor',
+    //       type: 'StyleDictionaryColorName',
+    //       filter: {
+    //         attributes: {
+    //           category: 'color',
+    //         },
+    //       },
+    //     },
+    //     {
+    //       destination: 'StyleDictionarySize.h',
+    //       format: 'ios/static.h',
+    //       className: 'StyleDictionarySize',
+    //       type: 'float',
+    //       filter: {
+    //         attributes: {
+    //           category: 'size',
+    //         },
+    //       },
+    //     },
+    //     {
+    //       destination: 'StyleDictionarySize.m',
+    //       format: 'ios/static.m',
+    //       className: 'StyleDictionarySize',
+    //       type: 'float',
+    //       filter: {
+    //         attributes: {
+    //           category: 'size',
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
     // 'ios-swift': {
     //   transformGroup: 'ios-swift',
     //   buildPath: 'build/ios-swift/',

@@ -67,9 +67,11 @@ const breakpointSizeOptions = Object.keys(size.breakpoint);
 const fontSizeOptions = Object.keys(size['font-size']);
 const fontWeightOptions = Object.keys(size['font-weight']);
 const fontHeadingOptions = Object.keys(size.heading);
+const heightSizeOptions = Object.keys(size.dimension);
 const lineHeightSizeOptions = Object.keys(size['line-height']);
 // const opacitySizeOptions = Object.keys(size.opacity);
 const spacingSizeOptions = Object.keys(size.spacing);
+const widthSizeOptions = Object.keys(size.dimension);
 const zIndexSizeOptions = Object.keys(size['z-index']);
 
 const BORDER_WIDTHS = 'BORDER_WIDTHS';
@@ -78,10 +80,12 @@ const BOX_SHADOW_SIZES = 'BOX_SHADOW_SIZES';
 const BREAKPOINT_SIZES = 'BREAKPOINT_SIZES';
 const FONT_SIZES = 'FONT_SIZES';
 const FONT_WEIGHTS = 'FONT_WEIGHTS';
+const HEIGHT_SIZES = 'HEIGHT_SIZES';
 const HEADING = 'HEADING';
 const LINE_HEIGHT_SIZES = 'LINE_HEIGHT_SIZES';
 // const OPACITY_SIZES = 'OPACITY_SIZES';
 const SPACING_SIZES = 'SPACING_SIZES';
+const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 
 // /**
@@ -180,6 +184,7 @@ const createSizeTokens = currentFile => {
   result = result.concat(
     writeExport(writeArray(fontWeightOptions, FONT_WEIGHTS)),
   );
+  result = result.concat(writeArray(heightSizeOptions, HEIGHT_SIZES));
   // result = result.concat(writeExport(writeArray(headingOptions, HEADING)));
   result = result.concat(
     writeExport(writeArray(lineHeightSizeOptions, LINE_HEIGHT_SIZES)),
@@ -188,6 +193,7 @@ const createSizeTokens = currentFile => {
   result = result.concat(
     writeExport(writeArray(spacingSizeOptions, SPACING_SIZES)),
   );
+  result = result.concat(writeArray(widthSizeOptions, WIDTH_SIZES));
   result = result.concat(
     writeExport(writeArray(zIndexSizeOptions, Z_INDEX_SIZES)),
   );
@@ -262,6 +268,9 @@ const createSizeTypes = currentFile => {
     writeExport(writeUnionTypeFromArray('FontWeight', FONT_WEIGHTS)),
   );
   result = result.concat(
+    writeExport(writeUnionTypeFromArray('HeightSize', HEIGHT_SIZES)),
+  );
+  result = result.concat(
     writeExport(writeUnionTypeFromArray('LineHeightSize', LINE_HEIGHT_SIZES)),
   );
   // result = result.concat(
@@ -269,6 +278,9 @@ const createSizeTypes = currentFile => {
   // );
   result = result.concat(
     writeExport(writeUnionTypeFromArray('SpacingSize', SPACING_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('WidthSize', WIDTH_SIZES)),
   );
   result = result.concat(
     writeExport(writeUnionTypeFromArray('ZIndexSize', Z_INDEX_SIZES)),
