@@ -157,7 +157,15 @@ StyleDictionary.extend({
       ],
     },
     scss: {
-      transformGroup: 'scss',
+      transforms: [
+        'attribute/cti',
+        'name/cti/kebab',
+        'color/css',
+        'size/rem',
+        'size/breakpoint',
+        'size/percentage',
+        'size/unitless',
+      ],
       buildPath: 'build/scss/',
       files: [
         {

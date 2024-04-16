@@ -21,6 +21,11 @@
         "value": "{color.base.red.50.value}",
         "darkValue": "{color.base.red.50.value}"
       },
+      "error": {
+        "value": "{color.base.red.500.value}",
+        "darkValue": "{color.base.red.500.value}",
+        "description": "Use this color for error messages and error states."
+      },
       "warning": {
         "value": "{color.base.yellow.50.value}",
         "darkValue": "{color.base.yellow.50.value}"
