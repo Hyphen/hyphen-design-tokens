@@ -1,7 +1,7 @@
-const createFileHeader = require('./utils/createFileHeader/createFileHeader');
-const addNewLines = require('./utils/addNewLines/addNewLines');
-const indentLine = require('./utils/indentLine/indentLine');
-const nestInsideMediaQuery = require('./utils/nestInsideMediaQuery/nestInsideMediaQuery');
+const createFileHeader = require('../../utils/createFileHeader/createFileHeader');
+const addNewLines = require('../../utils/addNewLines/addNewLines');
+const indentLine = require('../../utils/indentLine/indentLine');
+const nestInsideMediaQuery = require('../../utils/nestInsideMediaQuery/nestInsideMediaQuery');
 const utilities = require('./utilitiesConfig');
 
 const generateCssVariable = prop => {

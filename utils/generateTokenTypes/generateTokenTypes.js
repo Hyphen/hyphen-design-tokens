@@ -9,7 +9,7 @@ const BABEL_OPTIONS = {
   ],
 };
 
-const designTokens = require('../../../../build/json/_variables.json');
+const designTokens = require('../../build/json/_variables.json');
 
 /**
  * COLORS
@@ -74,7 +74,7 @@ const boxShadowSizeOptions = Object.keys(size['box-shadow']);
 const breakpointSizeOptions = Object.keys(size.breakpoint);
 const fontSizeOptions = Object.keys(size['font-size']);
 const fontWeightOptions = Object.keys(size['font-weight']);
-const fontHeadingOptions = Object.keys(size.heading);
+const headingSizeOptions = Object.keys(size.heading);
 const heightSizeOptions = Object.keys(size.dimension);
 const lineHeightSizeOptions = Object.keys(size['line-height']);
 // const opacitySizeOptions = Object.keys(size.opacity);
@@ -108,14 +108,14 @@ const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 /**
  * ICONS
  */
-// const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
-// const iconFiles = fs
-//   .readdirSync(sourceIconsDir)
-//   .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
-// const iconNames = iconFiles.map(iconFile =>
-//   iconFile.substr(0, iconFile.lastIndexOf('.')),
-// );
-// const ICON_NAMES = 'ICON_NAMES';
+const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
+const iconFiles = fs
+  .readdirSync(sourceIconsDir)
+  .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
+const iconNames = iconFiles.map(iconFile =>
+  iconFile.substr(0, iconFile.lastIndexOf('.')),
+);
+const ICON_NAMES = 'ICON_NAMES';
 
 /**
  * UTILITY FUNCTIONS
@@ -192,6 +192,7 @@ const createSizeTokens = currentFile => {
   result = result.concat(
     writeExport(writeArray(fontWeightOptions, FONT_WEIGHTS)),
   );
+  result = result.concat(writeArray(headingSizeOptions, HEADING));
   result = result.concat(writeArray(heightSizeOptions, HEIGHT_SIZES));
   // result = result.concat(writeExport(writeArray(headingOptions, HEADING)));
   result = result.concat(
@@ -217,15 +218,15 @@ const createAssetTokens = currentFile => {
   return result;
 };
 
-// const createIconNames = (currentFile, asConst = true) => {
-//   let result = currentFile;
+const createIconNames = (currentFile, asConst = true) => {
+  let result = currentFile;
 
-//   result = result.concat(
-//     writeExport(writeArray(iconNames, ICON_NAMES, { asConst })),
-//   );
+  result = result.concat(
+    writeExport(writeArray(iconNames, ICON_NAMES, { asConst })),
+  );
 
-//   return result;
-// };
+  return result;
+};
 
 /**
  * TYPE CREATION
@@ -276,6 +277,9 @@ const createSizeTypes = currentFile => {
     writeExport(writeUnionTypeFromArray('FontWeight', FONT_WEIGHTS)),
   );
   result = result.concat(
+    writeExport(writeUnionTypeFromArray('HeadingSize', HEADING)),
+  );
+  result = result.concat(
     writeExport(writeUnionTypeFromArray('HeightSize', HEIGHT_SIZES)),
   );
   result = result.concat(
@@ -306,14 +310,14 @@ const createAssetTypes = currentFile => {
   return result;
 };
 
-// const createIconTypes = currentFile => {
-//   let result = currentFile;
-//   result = result.concat(
-//     writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)),
-//   );
+const createIconTypes = currentFile => {
+  let result = currentFile;
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)),
+  );
 
-//   return result;
-// };
+  return result;
+};
 
 /**
  * WRITE FILE
@@ -325,29 +329,26 @@ const writeFile = () => {
   tokensData = createColorTokens(tokensData);
   tokensData = createSizeTokens(tokensData);
   tokensData = createAssetTokens(tokensData);
-  // tokensData = createIconNames(tokensData);
+  tokensData = createIconNames(tokensData);
 
   tokensData = createColorTypes(tokensData);
   tokensData = createSizeTypes(tokensData);
   tokensData = createAssetTypes(tokensData);
-  // tokensData = createIconTypes(tokensData);
+  tokensData = createIconTypes(tokensData);
 
-  if (!fs.existsSync(`${__dirname}/../../../../build/types`)) {
-    fs.mkdirSync(`${__dirname}/../../../../build/types`);
+  if (!fs.existsSync(`${__dirname}/../../build/types`)) {
+    fs.mkdirSync(`${__dirname}/../../build/types`);
   }
 
-  fs.writeFileSync(
-    `${__dirname}/../../../../build/types/index.d.ts`,
-    tokensData,
-  );
+  fs.writeFileSync(`${__dirname}/../../build/types/index.d.ts`, tokensData);
 
-  // let icons = '';
-  // icons = createFileHeader(icons);
-  // icons = babel.transformSync(
-  //   createIconNames(icons, false),
-  //   BABEL_OPTIONS,
-  // ).code;
-  // fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
+  let icons = '';
+  icons = createFileHeader(icons);
+  icons = babel.transformSync(
+    createIconNames(icons, false),
+    BABEL_OPTIONS,
+  ).code;
+  fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
 };
 
 module.exports = writeFile;

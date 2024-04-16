@@ -2,6 +2,8 @@ const StyleDictionary = require('style-dictionary');
 const fs = require('fs-extra');
 
 const utilityClass = require('./formats/utilityClass/utilityClass');
+const createIconComponents = require('./utils/createIconComponents/createIconComponents');
+const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
 
 const webPath = `build/css/`;
 
@@ -293,10 +295,21 @@ StyleDictionary.extend({
   },
 }).buildAllPlatforms();
 
+// Process Icons
+const iconsSource = './icons';
+const iconsDestination = './build/icons/svg';
+fs.copySync(iconsSource, iconsDestination);
+console.log('\n==============================================');
+console.log('\nIcons successfully copied to build');
+
+// Create React components based on SVG icons.
+createIconComponents();
+console.log('\n==============================================');
+console.log('\nReact icons created!');
+
 // From the built dictionary, generate constants of all token options.
 // File can't be required at the top since build files are a dependency for this function
 // and they do not exist until the style dictionary is built.
-const generateTokenTypes = require('./formats/utilityClass/utils/generateTokenTypes/generateTokenTypes');
 generateTokenTypes();
 console.log('\n==============================================');
 console.log('\nToken types generated!');
