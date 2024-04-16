@@ -33,6 +33,21 @@
       },
       "5xl": {
         "value": "4"
+      },
+      "6xl": {
+        "value": "8"
+      },
+      "7xl": {
+        "value": "12"
+      },
+      "8xl": {
+        "value": "16"
+      },
+      "9xl": {
+        "value": "32"
+      },
+      "10xl": {
+        "value": "64"
       }
     },
     "percentage": {
