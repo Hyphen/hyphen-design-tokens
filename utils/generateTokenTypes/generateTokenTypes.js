@@ -9,7 +9,7 @@ const BABEL_OPTIONS = {
   ],
 };
 
-const designTokens = require('../../build/json/_variables.json');
+const designTokens = require('../../build/json/variables.json');
 
 /**
  * COLORS

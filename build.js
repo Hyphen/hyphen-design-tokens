@@ -3,7 +3,6 @@ const fs = require('fs-extra');
 
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const createIconComponents = require('./utils/createIconComponents/createIconComponents');
-const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
 
 const webPath = `build/css/`;
 
@@ -110,11 +109,11 @@ StyleDictionary.extend({
       buildPath: webPath,
       files: [
         {
-          destination: '_variables.css',
+          destination: 'variables.css',
           format: 'css/variables',
         },
         {
-          destination: `_variables-dark.css`,
+          destination: `variables-dark.css`,
           format: `cssDark`,
           filter: token =>
             token.darkValue && token.attributes.category === `color`,
@@ -142,7 +141,7 @@ StyleDictionary.extend({
       buildPath: 'build/json/',
       files: [
         {
-          destination: '_variables.json',
+          destination: 'variables.json',
           format: 'json',
         },
       ],
@@ -152,7 +151,7 @@ StyleDictionary.extend({
       buildPath: 'build/js/',
       files: [
         {
-          destination: '_variables.js',
+          destination: 'variables.js',
           format: 'javascript/object',
         },
       ],
@@ -162,11 +161,11 @@ StyleDictionary.extend({
       buildPath: 'build/scss/',
       files: [
         {
-          destination: '_variables.scss',
+          destination: 'variables.scss',
           format: 'scss/variables',
         },
         {
-          destination: `_variables-dark.scss`,
+          destination: `variables-dark.scss`,
           format: `cssDark`,
           filter: token =>
             token.darkValue && token.attributes.category === `color`,
@@ -310,6 +309,7 @@ console.log('\nReact icons created!');
 // From the built dictionary, generate constants of all token options.
 // File can't be required at the top since build files are a dependency for this function
 // and they do not exist until the style dictionary is built.
+const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
 generateTokenTypes();
 console.log('\n==============================================');
 console.log('\nToken types generated!');

@@ -15,7 +15,7 @@ Running `style-dictionary build` for the first time to generate build artifacts.
 
 
 scss
-✔︎  build/scss/_variables.scss
+✔︎  build/scss/variables.scss
 
 android
 ✔︎  build/android/font_dimens.xml
@@ -57,7 +57,7 @@ Good for you! You have now built your first style dictionary! Moving on, take a 
 │      ├── StyleDictionaryColor.kt
 │      ├── StyleDictionarySize.kt
 │   ├── scss/
-│      ├── _variables.scss
+│      ├── variables.scss
 │   ├── ios/
 │      ├── StyleDictionaryColor.h
 │      ├── StyleDictionaryColor.m

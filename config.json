@@ -12,7 +12,7 @@
       "buildPath": "build/css/",
       "files": [
         {
-          "destination": "_variables.css",
+          "destination": "variables.css",
           "format": "css/variables"
         }
       ]
@@ -22,7 +22,7 @@
       "buildPath": "build/json/",
       "files": [
         {
-          "destination": "_variables.json",
+          "destination": "variables.json",
           "format": "javascript/json"
         }
       ]
@@ -32,7 +32,7 @@
       "buildPath": "build/js/",
       "files": [
         {
-          "destination": "_variables.js",
+          "destination": "variables.js",
           "format": "javascript/object"
         }
       ]
@@ -42,7 +42,7 @@
       "buildPath": "build/scss/",
       "files": [
         {
-          "destination": "_variables.scss",
+          "destination": "variables.scss",
           "format": "scss/variables"
         }
       ]
