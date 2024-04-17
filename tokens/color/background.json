@@ -89,6 +89,9 @@
       "button-danger-active": {
         "value": "{color.base.red.700.value}",
         "darkValue": "{color.base.red.700.value}"
+      },
+      "brand-gradient": {
+        "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
       }
     }
   }
