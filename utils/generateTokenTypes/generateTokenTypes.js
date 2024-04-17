@@ -96,9 +96,9 @@ const SPACING_SIZES = 'SPACING_SIZES';
 const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 
-// /**
-//  * ASSETS
-//  */
+/**
+ * ASSETS
+ */
 const assets = designTokens.assets;
 
 const fontFamilyOptions = Object.keys(assets['font-family']);
