@@ -1,0 +1,63 @@
+{
+  "size": {
+    "font-weight": {
+      "light": {
+        "value": "300"
+      },
+      "normal": {
+        "value": "400"
+      },
+      "medium": {
+        "value": "500"
+      },
+      "semibold": {
+        "value": "600"
+      },
+      "bold": {
+        "value": "700"
+      }
+    },
+    "font-size": {
+      "2xs": {
+        "value": "0.625"
+      },
+      "xs": {
+        "value": "0.75"
+      },
+      "sm": {
+        "value": "0.875"
+      },
+      "md": {
+        "value": "1"
+      },
+      "lg": {
+        "value": "1.125"
+      },
+      "xl": {
+        "value": "1.25"
+      },
+      "2xl": {
+        "value": "1.5"
+      },
+      "3xl": {
+        "value": "2"
+      },
+      "4xl": {
+        "value": "2.5"
+      },
+      "5xl": {
+        "value": "3"
+      },
+      "6xl": {
+        "value": "3.5"
+      },
+      "7xl": {
+        "value": "4"
+      },
+      "base": {
+        "value": "{size.font-size.md.value}",
+        "comment": "the base size of the font"
+      }
+    }
+  }
+}

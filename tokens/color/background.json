@@ -1,0 +1,98 @@
+{
+  "color": {
+    "background": {
+      "primary": {
+        "value": "{color.base.white.value}",
+        "darkValue": "{color.base.grey.700.value}"
+      },
+      "secondary": {
+        "value": "{color.base.grey.50.value}",
+        "darkValue": "{color.base.grey.800.value}"
+      },
+      "tertiary": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.900.value}"
+      },
+      "success": {
+        "value": "{color.base.green.50.value}",
+        "darkValue": "{color.base.green.50.value}"
+      },
+      "danger": {
+        "value": "{color.base.red.50.value}",
+        "darkValue": "{color.base.red.50.value}"
+      },
+      "error": {
+        "value": "{color.base.red.500.value}",
+        "darkValue": "{color.base.red.500.value}",
+        "description": "Use this color for error messages and error states."
+      },
+      "warning": {
+        "value": "{color.base.yellow.50.value}",
+        "darkValue": "{color.base.yellow.50.value}"
+      },
+      "info": {
+        "value": "{color.base.blue.50.value}",
+        "darkValue": "{color.base.blue.50.value}"
+      },
+      "inverse": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "transparent": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-primary": {
+        "value": "{color.base.grey.800.value}",
+        "darkValue": "{color.base.white.value}"
+      },
+      "button-primary-hover": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "button-primary-active": {
+        "value": "{color.base.grey.800.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "button-secondary": {
+        "value": "{color.base.white.value}",
+        "darkValue": "{color.base.grey.800.value}"
+      },
+      "button-secondary-hover": {
+        "value": "{color.base.primary.50.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
+      "button-secondary-active": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.700.value}"
+      },
+      "button-tertiary": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
+      "button-tertiary-hover": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
+      "button-tertiary-active": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.500.value}"
+      },
+      "button-danger": {
+        "value": "{color.base.red.500.value}",
+        "darkValue": "{color.base.red.500.value}"
+      },
+      "button-danger-hover": {
+        "value": "{color.base.red.600.value}",
+        "darkValue": "{color.base.red.600.value}"
+      },
+      "button-danger-active": {
+        "value": "{color.base.red.700.value}",
+        "darkValue": "{color.base.red.700.value}"
+      },
+      "brand-gradient": {
+        "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
+      }
+    }
+  }
+}

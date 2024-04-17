@@ -1,0 +1,15 @@
+{
+  "size": {
+    "breakpoint": {
+      "tablet": {
+        "value": "680"
+      },
+      "desktop": {
+        "value": "992"
+      },
+      "hd": {
+        "value": "1280"
+      }
+    }
+  }
+}

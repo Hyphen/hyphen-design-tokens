@@ -1,0 +1,24 @@
+{
+  "size": {
+    "z-index": {
+      "0": {
+        "value": "0"
+      },
+      "popover": {
+        "value": "9000"
+      },
+      "modal": {
+        "value": "8000"
+      },
+      "overlay": {
+        "value": "7000"
+      },
+      "drawer": {
+        "value": "200"
+      },
+      "sticky": {
+        "value": "100"
+      }
+    }
+  }
+}

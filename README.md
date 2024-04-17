@@ -22,48 +22,34 @@ yarn add @hyphen/hyphen-design-tokens
 
 Ideally you'd want to import them into a file that exposes them to your entire application.
 
-SASS Variables imported into a .scss file
-
-```scss
-@import '~@hyphen/hyphen-design-tokens/build/scss/tokens.scss'
-```
 
 CSS Variables imported into a .css file
 
 ```css
-@import '~@hyphen/hyphen-design-tokens/build/css/tokens.css'
+@import '~@hyphen/hyphen-design-tokens/build/css/variables.css'
 ```
 
-SASS Utility classes imported into a .scss file
-(NOTE: SCSS and CSS utility classes are the same, we provide both if you wish to maintain consistency in file formats)
+SASS Variables imported into a .scss file
 
 ```scss
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-color.scss'
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-size.scss'
+@import '~@hyphen/hyphen-design-tokens/build/scss/variables.scss'
 ```
 
 CSS Utility Classes imported into a .css file
 
 ```css
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-color.css'
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities-size.css'
+@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities.css'
 ```
 
 ### Use variables as needed
 
-SCSS
-
-```scss
-.class-with-primary-text-color: { color: $color.brand.primary.base; }
-$my-own-shadow-variable: 1rem 1rem $color.base.black;
-```
-
 CSS
 
 ```css
-.class-with-primary-text-color: { color: var(--color.brand.primary.base); }
---my-own-shadow-variable: 1rem 1rem var(--color.base.black);
+.class-with-base-text-color: { color: var(--color-font-base); }
+--my-own-shadow-variable: 1rem 1rem var(--color-base-black);
 ```
+
 
 ### Using Icons
 
@@ -85,7 +71,7 @@ USING RAW SVGs
 USING REACT COMPONENTS
 
 ```react
-import UserIcon from '@hyphen/hyphen-design-tokens/build/icons/react/UserIcon'; <-- Single Icon Import
+import UserIcon from '@hyphen/hyphen-design-tokens/build/icons/react/Add'; <-- Single Icon Import
 
 // or
 import icons from '@hyphen/hyphen-design-tokens/build/icons/react; <-- Icon map
@@ -101,6 +87,8 @@ import { IconName } from '@hyphen/hyphen-design-tokens/build/types';
 
 ## Available Tokens
 
+* Assets
+  * Font Family
 * Color
   * Brand
   * Font
@@ -108,15 +96,15 @@ import { IconName } from '@hyphen/hyphen-design-tokens/build/types';
 * Size
   * Border
   * Border Radius
-  * Breakpoint
-  * Spacing
-  * Font
-  * Width
-  * Height
   * Box Shadow
-  * Opacity
-  * Z-Index
+  * Breakpoint
+  * Height
+  * Font Size
+  * Font Weight
   * Line-Height
+  * Spacing
+  * Width
+  * Z-Index
 
 ## Local Development
 
@@ -127,15 +115,6 @@ In order to test any local changes you'll need to build tokens, and symlink your
 ## Update Tokens via file
 
 TDB
-
-## Updating Tokens via Figma
-
-While style-dictionary typically builds tokens off of raw JSON files, in our case we are actually pulling token names and values directly from a Figma file
-so visual designers can make changes and publish them as tokens. The build process will read the file (The id is a constant in the `build.js` file).
-
-In order to make changes to tokens, you'll need to open the [Design Tokens](https://www.figma.com/file/abGRptpr7iPaMsXdEPVm6W/Design-Tokens) file. Once you've made your changes, Save a new Version of the file in Figma by going to the hamburger menu --> File --> Save to version history...
-
-This will create a new version of the same file. The File ID will remain the same, but you should now be able to go to your file version, and extract the version ID from the URL in the browser. Replace the existing `FIGMA_FILE_VERSION` constant in `build.js` and run a build to confirm that your version is working correctly.
 
 ## Updating Icons
 

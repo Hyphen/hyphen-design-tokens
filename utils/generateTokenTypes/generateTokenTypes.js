@@ -3,77 +3,105 @@ const path = require('path');
 const babel = require('@babel/core');
 
 const BABEL_OPTIONS = {
-  plugins: ['@babel/plugin-transform-react-jsx', '@babel/plugin-transform-modules-commonjs'],
+  plugins: [
+    '@babel/plugin-transform-react-jsx',
+    '@babel/plugin-transform-modules-commonjs',
+  ],
 };
-const colorTokens = require('../../build/json/variables-color.json');
-const sizeTokens = require('../../build/json/variables-size.json');
-const assetTokens = require('../../build/json/variables-asset.json');
+
+const designTokens = require('../../build/json/variables.json');
 
 /**
  * COLORS
  */
-const brandColors = colorTokens.color.brand;
-const BRAND_COLORS = 'BRAND_COLORS';
+const color = designTokens.color;
+
+const baseColors = color.base;
+const borderColors = color.border;
+const backgroundColors = color.background;
+const fontColors = color.font;
+const BASE_COLORS = 'BASE_COLORS';
+const BACKGROUND_COLORS = 'BACKGROUND_COLORS';
+const BORDER_COLORS = 'BORDER_COLORS';
 const FONT_COLORS = 'FONT_COLORS';
-const BRAND_COLOR_NAMES = 'BRAND_COLOR_NAMES';
+const BASE_COLOR_NAMES = 'BASE_COLOR_NAMES';
+const BACKGROUND_COLOR_NAMES = 'BACKGROUND_COLOR_NAMES';
+const BORDER_COLOR_NAMES = 'BORDER_COLOR_NAMES';
+const FONT_COLOR_NAMES = 'FONT_COLOR_NAMES';
 
-const brandColorOptions = [].concat.apply(
+const baseColorNames = Object.keys(baseColors);
+const backgroundColorNames = Object.keys(backgroundColors);
+const borderColorNames = Object.keys(borderColors);
+const fontColorNames = Object.keys(fontColors);
+
+const baseColorOptions = [].concat.apply(
   [],
-  Object.keys(brandColors).map(colorName =>
-    Object.keys(brandColors[colorName]).map(colorGrade =>
+  Object.keys(baseColors).map(colorName => {
+    if (
+      colorName === 'white' ||
+      colorName === 'black' ||
+      colorName === 'magenta'
+    ) {
+      return colorName;
+    }
+
+    return Object.keys(baseColors[colorName]).map(colorGrade =>
       colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+    );
+  }),
 );
-
-const brandColorNames = Object.keys(brandColors);
-
+const backgroundColorOptions = [].concat.apply(
+  [],
+  Object.keys(backgroundColors).map(colorName => colorName),
+);
+const borderColorOptions = [].concat.apply(
+  [],
+  Object.keys(borderColors).map(colorName => colorName),
+);
 const fontColorOptions = [].concat.apply(
   [],
-  Object.keys(brandColors).map(colorName =>
-    Object.keys(brandColors[colorName]).map(colorGrade =>
-      colorGrade === 'base' ? colorName : `${colorName}-${colorGrade}`,
-    ),
-  ),
+  Object.keys(fontColors).map(colorName => colorName),
 );
 
 /**
  * SIZES
  */
-const { size } = sizeTokens;
+const size = designTokens.size;
 
-const borderSizeOptions = Object.keys(size.border);
+const borderWidthOptions = Object.keys(size['border-width']);
 const borderRadiusSizeOptions = Object.keys(size['border-radius']);
 const boxShadowSizeOptions = Object.keys(size['box-shadow']);
 const breakpointSizeOptions = Object.keys(size.breakpoint);
-const fontSizeOptions = Object.keys(size.font);
+const fontSizeOptions = Object.keys(size['font-size']);
 const fontWeightOptions = Object.keys(size['font-weight']);
-const heightSizeOptions = Object.keys(size.height);
+const headingSizeOptions = Object.keys(size.heading);
+const heightSizeOptions = Object.keys(size.dimension);
 const lineHeightSizeOptions = Object.keys(size['line-height']);
-const opacitySizeOptions = Object.keys(size.opacity);
+// const opacitySizeOptions = Object.keys(size.opacity);
 const spacingSizeOptions = Object.keys(size.spacing);
-const widthSizeOptions = Object.keys(size.width);
+const widthSizeOptions = Object.keys(size.dimension);
 const zIndexSizeOptions = Object.keys(size['z-index']);
 
-const BORDER_SIZES = 'BORDER_SIZES';
+const BORDER_WIDTHS = 'BORDER_WIDTHS';
 const BORDER_RADIUS_SIZES = 'BORDER_RADIUS_SIZES';
 const BOX_SHADOW_SIZES = 'BOX_SHADOW_SIZES';
 const BREAKPOINT_SIZES = 'BREAKPOINT_SIZES';
 const FONT_SIZES = 'FONT_SIZES';
 const FONT_WEIGHTS = 'FONT_WEIGHTS';
 const HEIGHT_SIZES = 'HEIGHT_SIZES';
+const HEADING = 'HEADING';
 const LINE_HEIGHT_SIZES = 'LINE_HEIGHT_SIZES';
-const OPACITY_SIZES = 'OPACITY_SIZES';
+// const OPACITY_SIZES = 'OPACITY_SIZES';
 const SPACING_SIZES = 'SPACING_SIZES';
 const WIDTH_SIZES = 'WIDTH_SIZES';
 const Z_INDEX_SIZES = 'Z_INDEX_SIZES';
 
 /**
- * ASSETS 
+ * ASSETS
  */
-const { asset } = assetTokens;
+const assets = designTokens.assets;
 
-const fontFamilyOptions = Object.keys(asset.fonts);
+const fontFamilyOptions = Object.keys(assets['font-family']);
 
 const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 
@@ -84,13 +112,19 @@ const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
 const iconFiles = fs
   .readdirSync(sourceIconsDir)
   .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
-const iconNames = iconFiles.map(iconFile => iconFile.substr(0, iconFile.lastIndexOf('.')));
+const iconNames = iconFiles.map(iconFile =>
+  iconFile.substr(0, iconFile.lastIndexOf('.')),
+);
 const ICON_NAMES = 'ICON_NAMES';
 
 /**
  * UTILITY FUNCTIONS
  */
-const writeArray = (array, arrayName, options = { lineBreak: true, asConst: true }) => {
+const writeArray = (
+  array,
+  arrayName,
+  options = { lineBreak: true, asConst: true },
+) => {
   const { lineBreak, asConst } = options;
 
   let result = `const ${arrayName} = [`;
@@ -117,9 +151,24 @@ const createFileHeader = currentFile =>
 const createColorTokens = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeExport(writeArray(brandColorOptions, BRAND_COLORS)));
-  result = result.concat(writeExport(writeArray(fontColorOptions, FONT_COLORS)));
-  result = result.concat(writeArray(brandColorNames, BRAND_COLOR_NAMES));
+  result = result.concat(
+    writeExport(writeArray(baseColorOptions, BASE_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeArray(backgroundColorOptions, BACKGROUND_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeArray(borderColorOptions, BORDER_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeArray(fontColorOptions, FONT_COLORS)),
+  );
+  result = result.concat(writeArray(baseColorNames, BASE_COLOR_NAMES));
+  result = result.concat(
+    writeArray(backgroundColorNames, BACKGROUND_COLOR_NAMES),
+  );
+  result = result.concat(writeArray(borderColorNames, BORDER_COLOR_NAMES));
+  result = result.concat(writeArray(fontColorNames, FONT_COLOR_NAMES));
 
   return result;
 };
@@ -127,18 +176,36 @@ const createColorTokens = currentFile => {
 const createSizeTokens = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeArray(borderSizeOptions, BORDER_SIZES));
-  result = result.concat(writeArray(borderRadiusSizeOptions, BORDER_RADIUS_SIZES));
-  result = result.concat(writeArray(boxShadowSizeOptions, BOX_SHADOW_SIZES));
-  result = result.concat(writeArray(breakpointSizeOptions, BREAKPOINT_SIZES));
-  result = result.concat(writeArray(fontSizeOptions, FONT_SIZES));
-  result = result.concat(writeArray(fontWeightOptions, FONT_WEIGHTS));
+  result = result.concat(
+    writeExport(writeArray(borderWidthOptions, BORDER_WIDTHS)),
+  );
+  result = result.concat(
+    writeExport(writeArray(borderRadiusSizeOptions, BORDER_RADIUS_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeArray(boxShadowSizeOptions, BOX_SHADOW_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeArray(breakpointSizeOptions, BREAKPOINT_SIZES)),
+  );
+  result = result.concat(writeExport(writeArray(fontSizeOptions, FONT_SIZES)));
+  result = result.concat(
+    writeExport(writeArray(fontWeightOptions, FONT_WEIGHTS)),
+  );
+  result = result.concat(writeArray(headingSizeOptions, HEADING));
   result = result.concat(writeArray(heightSizeOptions, HEIGHT_SIZES));
-  result = result.concat(writeArray(lineHeightSizeOptions, LINE_HEIGHT_SIZES));
-  result = result.concat(writeArray(opacitySizeOptions, OPACITY_SIZES));
-  result = result.concat(writeArray(spacingSizeOptions, SPACING_SIZES));
+  // result = result.concat(writeExport(writeArray(headingOptions, HEADING)));
+  result = result.concat(
+    writeExport(writeArray(lineHeightSizeOptions, LINE_HEIGHT_SIZES)),
+  );
+  // result = result.concat(writeExport(writeArray(opacitySizeOptions, OPACITY_SIZES)));
+  result = result.concat(
+    writeExport(writeArray(spacingSizeOptions, SPACING_SIZES)),
+  );
   result = result.concat(writeArray(widthSizeOptions, WIDTH_SIZES));
-  result = result.concat(writeArray(zIndexSizeOptions, Z_INDEX_SIZES));
+  result = result.concat(
+    writeExport(writeArray(zIndexSizeOptions, Z_INDEX_SIZES)),
+  );
 
   return result;
 };
@@ -149,12 +216,14 @@ const createAssetTokens = currentFile => {
   result = result.concat(writeArray(fontFamilyOptions, FONT_FAMILY_OPTIONS));
 
   return result;
-}
+};
 
 const createIconNames = (currentFile, asConst = true) => {
   let result = currentFile;
 
-  result = result.concat(writeExport(writeArray(iconNames, ICON_NAMES, { asConst })));
+  result = result.concat(
+    writeExport(writeArray(iconNames, ICON_NAMES, { asConst })),
+  );
 
   return result;
 };
@@ -165,9 +234,21 @@ const createIconNames = (currentFile, asConst = true) => {
 const createColorTypes = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeExport(writeUnionTypeFromArray('BrandColor', BRAND_COLORS)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('FontColor', FONT_COLORS)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('ColorName', BRAND_COLOR_NAMES)));
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BaseColor', BASE_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BackgroundColor', BACKGROUND_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BorderColor', BORDER_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('FontColor', FONT_COLORS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('ColorName', BASE_COLOR_NAMES)),
+  );
 
   return result;
 };
@@ -175,35 +256,65 @@ const createColorTypes = currentFile => {
 const createSizeTypes = currentFile => {
   let result = currentFile;
 
-  result = result.concat(writeExport(writeUnionTypeFromArray('BorderSize', BORDER_SIZES)));
   result = result.concat(
-    writeExport(writeUnionTypeFromArray('BorderRadiusSize', BORDER_RADIUS_SIZES)),
+    writeExport(writeUnionTypeFromArray('BorderSize', BORDER_WIDTHS)),
   );
-  result = result.concat(writeExport(writeUnionTypeFromArray('BoxShadowSize', BOX_SHADOW_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('BreakpointSize', BREAKPOINT_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('FontSize', FONT_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('FontWeight', FONT_WEIGHTS)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('HeightSize', HEIGHT_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('LineHeightSize', LINE_HEIGHT_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('OpacitySize', OPACITY_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('SpacingSize', SPACING_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('WidthSize', WIDTH_SIZES)));
-  result = result.concat(writeExport(writeUnionTypeFromArray('ZIndexSize', Z_INDEX_SIZES)));
+  result = result.concat(
+    writeExport(
+      writeUnionTypeFromArray('BorderRadiusSize', BORDER_RADIUS_SIZES),
+    ),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BoxShadowSize', BOX_SHADOW_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('BreakpointSize', BREAKPOINT_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('FontSize', FONT_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('FontWeight', FONT_WEIGHTS)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('HeadingSize', HEADING)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('HeightSize', HEIGHT_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('LineHeightSize', LINE_HEIGHT_SIZES)),
+  );
+  // result = result.concat(
+  //   writeExport(writeUnionTypeFromArray('OpacitySize', OPACITY_SIZES)),
+  // );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('SpacingSize', SPACING_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('WidthSize', WIDTH_SIZES)),
+  );
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('ZIndexSize', Z_INDEX_SIZES)),
+  );
 
   return result;
 };
 
-
 const createAssetTypes = currentFile => {
   let result = currentFile;
-  result = result.concat(writeExport(writeUnionTypeFromArray('FontFamily', FONT_FAMILY_OPTIONS)));
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('FontFamily', FONT_FAMILY_OPTIONS)),
+  );
 
   return result;
 };
 
 const createIconTypes = currentFile => {
   let result = currentFile;
-  result = result.concat(writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)));
+  result = result.concat(
+    writeExport(writeUnionTypeFromArray('IconName', ICON_NAMES)),
+  );
 
   return result;
 };
@@ -233,7 +344,10 @@ const writeFile = () => {
 
   let icons = '';
   icons = createFileHeader(icons);
-  icons = babel.transformSync(createIconNames(icons, false), BABEL_OPTIONS).code;
+  icons = babel.transformSync(
+    createIconNames(icons, false),
+    BABEL_OPTIONS,
+  ).code;
   fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
 };
 

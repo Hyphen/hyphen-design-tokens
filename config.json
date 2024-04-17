@@ -1,123 +1,168 @@
 {
+  "source": ["tokens/**/*.json"],
+
   "platforms": {
-    "scss": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "buildPath": "build/scss/",
-      "files": [
-        {
-          "destination": "variables-color.scss",
-          "format": "scss/variables",
-          "filter": "isBrandColor"
-        },
-        {
-          "destination": "variables-size.scss",
-          "format": "scss/variables",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "variables-asset.scss",
-          "format": "scss/variables/font",
-          "filter": "isCategoryAsset"
-        }
-      ]
-    },
-    "css": {
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
+    "web": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/css",
+        "size/rem"
+      ],
       "buildPath": "build/css/",
       "files": [
         {
-          "destination": "variables-color.css",
-          "format": "css/variables",
-          "filter": "isBrandColor"
-        },
-        {
-          "destination": "variables-size.css",
-          "format": "css/variables",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "variables-asset.css",
-          "format": "css/variables/font",
-          "filter": "isCategoryAsset"
-        }
-      ]
-    },
-    "cssUtilities": {
-      "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.css",
-        "format": "css/utility-classes"
-      }]
-    },
-    "sassUtilities": {
-      "buildPath": "build/utilities/",
-      "transforms": ["attribute/cti", "name/cti/custom-kebab", "time/seconds", "content/icon", "size/use-unit", "color/css"],
-      "files": [{
-        "destination": "utilities.scss",
-        "format": "css/utility-classes"
-      }]
-    },
-    "js": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
-      "buildPath": "build/js/",
-      "files": [
-        {
-          "destination": "variables-color.js",
-          "format": "javascript/module",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.js",
-          "format": "javascript/module",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "variables-asset.js",
-          "format": "javascript/module",
-          "filter": "isCategoryAsset"
+          "destination": "variables.css",
+          "format": "css/variables"
         }
       ]
     },
     "json": {
-      "transforms": ["attribute/cti", "name/cti/pascal", "size/use-unit", "color/css"],
+      "transformGroup": "json",
       "buildPath": "build/json/",
       "files": [
         {
-          "destination": "variables-color.json",
-          "format": "json",
-          "filter": "isCategoryColor"
-        },
-        {
-          "destination": "variables-size.json",
-          "format": "json",
-          "filter": "isCategorySize"
-        },
-        {
-          "destination": "variables-asset.json",
-          "format": "json",
-          "filter": "isCategoryAsset"
+          "destination": "variables.json",
+          "format": "javascript/json"
         }
       ]
     },
-    "jsonNested": {
-      "transforms": ["attribute/cti", "color/css", "name/cti/custom-kebab"],
-      "buildPath": "build/json/values/",
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "build/js/",
       "files": [
         {
-          "destination": "variables-color.json",
-          "format": "json/nested",
-          "filter": "isCategoryColor"
+          "destination": "variables.js",
+          "format": "javascript/object"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "build/scss/",
+      "files": [
+        {
+          "destination": "variables.scss",
+          "format": "scss/variables"
+        }
+      ]
+    },
+    "android": {
+      "transformGroup": "android",
+      "buildPath": "build/android/",
+      "files": [
+        {
+          "destination": "font_dimens.xml",
+          "format": "android/fontDimens"
         },
         {
-          "destination": "variables-size.json",
-          "format": "json/nested",
-          "filter": "isCategorySize"
+          "destination": "colors.xml",
+          "format": "android/colors"
+        }
+      ]
+    },
+    "ios": {
+      "transformGroup": "ios",
+      "buildPath": "build/ios/",
+      "files": [
+        {
+          "destination": "StyleDictionaryColor.h",
+          "format": "ios/colors.h",
+          "className": "StyleDictionaryColor",
+          "type": "StyleDictionaryColorName",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
         },
         {
-          "destination": "variables-asset.json",
-          "format": "json/nested",
-          "filter": "isCategoryAsset"
+          "destination": "StyleDictionaryColor.m",
+          "format": "ios/colors.m",
+          "className": "StyleDictionaryColor",
+          "type": "StyleDictionaryColorName",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "StyleDictionarySize.h",
+          "format": "ios/static.h",
+          "className": "StyleDictionarySize",
+          "type": "float",
+          "filter": {
+            "attributes": {
+              "category": "size"
+            }
+          }
+        },
+        {
+          "destination": "StyleDictionarySize.m",
+          "format": "ios/static.m",
+          "className": "StyleDictionarySize",
+          "type": "float",
+          "filter": {
+            "attributes": {
+              "category": "size"
+            }
+          }
+        }
+      ]
+    },
+    "ios-swift": {
+      "transformGroup": "ios-swift",
+      "buildPath": "build/ios-swift/",
+      "files": [
+        {
+          "destination": "StyleDictionary+Class.swift",
+          "format": "ios-swift/class.swift",
+          "className": "StyleDictionaryClass",
+          "filter": {}
+        },
+        {
+          "destination": "StyleDictionary+Enum.swift",
+          "format": "ios-swift/enum.swift",
+          "className": "StyleDictionaryEnum",
+          "filter": {}
+        },
+        {
+          "destination": "StyleDictionary+Struct.swift",
+          "format": "ios-swift/any.swift",
+          "className": "StyleDictionaryStruct",
+          "filter": {},
+          "options": {
+            "imports": "SwiftUI",
+            "objectType": "struct",
+            "accessControl": "internal"
+          }
+        }
+      ]
+    },
+    "ios-swift-separate-enums": {
+      "transformGroup": "ios-swift-separate",
+      "buildPath": "build/ios-swift/",
+      "files": [
+        {
+          "destination": "StyleDictionaryColor.swift",
+          "format": "ios-swift/enum.swift",
+          "className": "StyleDictionaryColor",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "StyleDictionarySize.swift",
+          "format": "ios-swift/enum.swift",
+          "className": "StyleDictionarySize",
+          "filter": {
+            "attributes": {
+              "category": "size"
+            }
+          }
         }
       ]
     }

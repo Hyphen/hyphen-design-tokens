@@ -1,0 +1,104 @@
+{
+  "color": {
+    "font": {
+      "base": {
+        "value": "{color.base.grey.600.value}",
+        "darkValue": "{color.base.grey.50.value}"
+      },
+      "secondary": {
+        "value": "{color.base.grey.500.value}",
+        "darkValue": "{color.base.grey.200.value}"
+      },
+      "white": {
+        "value": "{color.base.white}",
+        "darkValue": "{color.base.white}"
+      },
+      "inverse": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
+      "disabled": {
+        "value": "{color.base.grey.300.value}",
+        "darkValue": "{color.base.grey.500.value}"
+      },
+      "success": {
+        "value": "{color.base.green.600.value}",
+        "darkValue": "{color.base.green.500.value}"
+      },
+      "success-disabled": {
+        "value": "{color.base.green.200.value}",
+        "darkValue": "{color.base.green.500.value}"
+      },
+      "info": {
+        "value": "{color.base.blue.600.value}",
+        "darkValue": "{color.base.blue.500.value}"
+      },
+      "warn": {
+        "value": "{color.base.yellow.600.value}",
+        "darkValue": "{color.base.yellow.500.value}"
+      },
+      "warn-disabled": {
+        "value": "{color.base.yellow.200.value}",
+        "darkValue": "{color.base.yellow.200.value}"
+      },
+      "danger": {
+        "value": "{color.base.red.600.value}",
+        "darkValue": "{color.base.red.500.value}"
+      },
+      "danger-disabled": {
+        "value": "{color.base.red.200.value}",
+        "darkValue": "{color.base.red.200.value}"
+      },
+      "button-primary": {
+        "value": "{color.base.white}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-primary-hover": {
+        "value": "{color.base.white}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-primary-active": {
+        "value": "{color.base.white}",
+        "darkValue": "{color.base.primary.500.value}"
+      },
+      "button-secondary": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-secondary-hover": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-secondary-active": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-tertiary": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-tertiary-hover": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-tertiary-active": {
+        "value": "{color.base.primary.500.value}",
+        "darkValue": "{color.base.white}"
+      },
+      "button-danger": {
+        "value": "{color.base.white}"
+      },
+      "button-danger-hover": {
+        "value": "{color.base.white}"
+      },
+      "button-danger-active": {
+        "value": "{color.base.white}"
+      },
+      "placeholder": {
+        "value": "{color.base.grey.300.value}",
+        "darkValue": "{color.base.grey.400.value}",
+        "comment": "Placeholder color for input fields"
+      }
+    }
+  }
+}
