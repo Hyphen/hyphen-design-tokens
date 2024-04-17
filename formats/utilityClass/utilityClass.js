@@ -76,6 +76,15 @@ const generateUtilityClass = (utility, prop, variation, breakpoint, state) => {
   const tokenCategory = prop.attributes.category;
   const tokenType = prop.attributes.type;
 
+  // only margin supports the 'auto' value
+  if (
+    prop.attributes.type === 'spacing' &&
+    prop.value === 'auto' &&
+    utility.name !== 'margin'
+  ) {
+    return;
+  }
+
   const { name, abbreviation, hover } = utility;
   let utilityClass = '';
 

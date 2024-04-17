@@ -43,6 +43,20 @@ function darkFormatWrapper(format) {
 }
 
 StyleDictionary.registerTransform({
+  name: 'size/remAuto',
+  type: 'value',
+  matcher: function (token) {
+    return token.attributes.category === 'size';
+  },
+  transformer: function (token) {
+    if (token.value === 'auto') return token.value;
+    const val = parseFloat(token.value);
+    if (isNaN(val)) throwSizeError(token.name, token.value, 'rem');
+    return val + 'rem';
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'size/breakpoint',
   type: 'value',
   matcher: function (token) {
@@ -101,7 +115,7 @@ StyleDictionary.extend({
         'attribute/cti',
         'name/cti/kebab',
         'color/css',
-        'size/rem',
+        'size/remAuto',
         'size/breakpoint',
         'size/percentage',
         'size/unitless',
@@ -137,7 +151,12 @@ StyleDictionary.extend({
       ],
     },
     json: {
-      transformGroup: 'js',
+      transforms: [
+        'attribute/cti',
+        'name/cti/pascal',
+        'size/remAuto',
+        'color/hex',
+      ],
       buildPath: 'build/json/',
       files: [
         {
@@ -147,7 +166,12 @@ StyleDictionary.extend({
       ],
     },
     js: {
-      transformGroup: 'js',
+      transforms: [
+        'attribute/cti',
+        'name/cti/pascal',
+        'size/remAuto',
+        'color/hex',
+      ],
       buildPath: 'build/js/',
       files: [
         {
@@ -161,7 +185,7 @@ StyleDictionary.extend({
         'attribute/cti',
         'name/cti/kebab',
         'color/css',
-        'size/rem',
+        'size/remAuto',
         'size/breakpoint',
         'size/percentage',
         'size/unitless',

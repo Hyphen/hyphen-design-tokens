@@ -33,6 +33,9 @@
       },
       "5xl": {
         "value": "4"
+      },
+      "auto": {
+        "value": "auto"
       }
     }
   }

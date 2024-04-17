@@ -1,9 +1,6 @@
 {
   "size": {
     "breakpoint": {
-      "base": {
-        "value": "0"
-      },
       "tablet": {
         "value": "680"
       },
