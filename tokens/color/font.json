@@ -93,6 +93,11 @@
       },
       "button-danger-active": {
         "value": "{color.base.white}"
+      },
+      "placeholder": {
+        "value": "{color.base.grey.300.value}",
+        "darkValue": "{color.base.grey.400.value}",
+        "comment": "Placeholder color for input fields"
       }
     }
   }
