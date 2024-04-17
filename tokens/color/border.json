@@ -31,11 +31,11 @@
       },
       "button-secondary": {
         "value": "{color.base.primary.100.value}",
-        "darkValue": "{color.base.primary.400.value}"
+        "darkValue": "{color.base.primary.300.value}"
       },
       "button-secondary-hover": {
         "value": "{color.base.primary.100.value}",
-        "darkValue": "{color.base.primary.400.value}"
+        "darkValue": "{color.base.primary.300.value}"
       },
       "button-secondary-active": {
         "value": "{color.base.primary.200.value}",

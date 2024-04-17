@@ -56,7 +56,7 @@
       },
       "button-secondary": {
         "value": "{color.base.white.value}",
-        "darkValue": "{color.base.grey.500.value}"
+        "darkValue": "{color.base.grey.800.value}"
       },
       "button-secondary-hover": {
         "value": "{color.base.primary.50.value}",
@@ -64,18 +64,18 @@
       },
       "button-secondary-active": {
         "value": "{color.base.grey.100.value}",
-        "darkValue": "{color.base.grey.500.value}"
+        "darkValue": "{color.base.grey.700.value}"
       },
       "button-tertiary": {
         "value": "transparent",
         "darkValue": "transparent"
       },
       "button-tertiary-hover": {
-        "value": "{color.base.grey.50.value}",
+        "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
       "button-tertiary-active": {
-        "value": "{color.base.grey.100.value}",
+        "value": "{color.base.grey.200.value}",
         "darkValue": "{color.base.grey.500.value}"
       },
       "button-danger": {
