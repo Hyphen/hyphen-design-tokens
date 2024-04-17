@@ -3,7 +3,7 @@
     "font": {
       "base": {
         "value": "{color.base.grey.600.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "darkValue": "{color.base.grey.50.value}"
       },
       "secondary": {
         "value": "{color.base.grey.500.value}",

@@ -3,7 +3,7 @@
     "border": {
       "default": {
         "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.700.value}"
+        "darkValue": "{color.base.grey.600.value}"
       },
       "hover": {
         "value": "{color.base.grey.300.value}",
