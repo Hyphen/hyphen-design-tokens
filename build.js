@@ -78,7 +78,8 @@ StyleDictionary.registerTransform({
       token.attributes.type === 'font-weight' ||
       token.attributes.type === 'z-index' ||
       token.attributes.type === 'line-height' ||
-      token.attributes.type === 'box-shadow'
+      token.attributes.type === 'box-shadow' ||
+      token.attributes.type === 'breakpoint'
     );
   },
   transformer: function (token) {
@@ -156,6 +157,7 @@ StyleDictionary.extend({
         'name/cti/pascal',
         'size/remAuto',
         'color/hex',
+        'size/unitless',
       ],
       buildPath: 'build/json/',
       files: [
@@ -171,6 +173,7 @@ StyleDictionary.extend({
         'name/cti/pascal',
         'size/remAuto',
         'color/hex',
+        'size/unitless',
       ],
       buildPath: 'build/js/',
       files: [
