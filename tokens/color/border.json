@@ -3,6 +3,10 @@
     "border": {
       "default": {
         "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.500.value}"
+      },
+      "subtle": {
+        "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
       "subtle": {
