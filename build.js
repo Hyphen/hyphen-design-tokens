@@ -5,11 +5,29 @@ const utilityClass = require('./formats/utilityClass/utilityClass');
 const createIconComponents = require('./utils/createIconComponents/createIconComponents');
 
 const webPath = `build/css/`;
+const scssPath = `build/scss/`;
+const jsPath = `build/js/`;
+const jsonPath = `build/json/`;
+const icons = `build/icons/`;
+const typesPath = `build/types/`;
+const utilitiesPath = `build/utilities/`;
 
 // before this runs we should clean the directories we are generating files in
 // to make sure they are ✨clean✨
 console.log(`cleaning ${webPath}...`);
 fs.removeSync(webPath);
+console.log(`cleaning ${scssPath}...`);
+fs.removeSync(scssPath);
+console.log(`cleaning ${jsPath}...`);
+fs.removeSync(jsPath);
+console.log(`cleaning ${jsonPath}...`);
+fs.removeSync(jsonPath);
+console.log(`cleaning ${icons}...`);
+fs.removeSync(icons);
+console.log(`cleaning ${typesPath}...`);
+fs.removeSync(typesPath);
+console.log(`cleaning ${utilitiesPath}...`);
+fs.removeSync(utilitiesPath);
 
 /**
  * This function will wrap a built-in format and replace `.value` with `.darkValue`
