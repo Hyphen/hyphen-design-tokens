@@ -87,7 +87,7 @@ const utilities = [
     tokenType: 'border-width',
     cssProp: 'border',
     variations: ['', 'top', 'right', 'bottom', 'left', 'h', 'v'],
-    responsive: false,
+    responsive: true,
     hover: true,
     focus: true,
   },
