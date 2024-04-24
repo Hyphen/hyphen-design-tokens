@@ -9,10 +9,6 @@
         "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
-      "subtle": {
-        "value": "{color.base.grey.100.value}",
-        "darkValue": "{color.base.grey.700.value}"
-      },
       "hover": {
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.600.value}"
