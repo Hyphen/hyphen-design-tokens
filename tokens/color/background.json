@@ -10,7 +10,7 @@
         "darkValue": "{color.base.grey.800.value}"
       },
       "tertiary": {
-        "value": "{color.base.grey.200.value}",
+        "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.900.value}"
       },
       "success": {
