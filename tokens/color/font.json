@@ -6,7 +6,7 @@
         "darkValue": "{color.base.grey.50.value}"
       },
       "secondary": {
-        "value": "{color.base.grey.500.value}",
+        "value": "{color.base.grey.400.value}",
         "darkValue": "{color.base.grey.200.value}"
       },
       "white": {
