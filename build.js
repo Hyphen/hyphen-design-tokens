@@ -144,6 +144,15 @@ StyleDictionary.extend({
           destination: 'variables.css',
           format: 'css/variables',
         },
+        // for dark mode using "dark" class applied to root
+        {
+          destination: `variables-root-dark.css`,
+          options: { selector: ':root.dark' },
+          format: `cssDark`,
+          filter: token =>
+            token.darkValue && token.attributes.category === `color`,
+        },
+        // for dark mode using prefers-color-scheme
         {
           destination: `variables-dark.css`,
           format: `cssDark`,
