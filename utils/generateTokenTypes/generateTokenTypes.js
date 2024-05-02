@@ -75,11 +75,15 @@ const breakpointSizeOptions = Object.keys(size.breakpoint);
 const fontSizeOptions = Object.keys(size['font-size']);
 const fontWeightOptions = Object.keys(size['font-weight']);
 const headingSizeOptions = Object.keys(size.heading);
-const heightSizeOptions = Object.keys(size.dimension).concat(Object.keys(size.percentage));
+const heightSizeOptions = Object.keys(size.dimension).concat(
+  Object.keys(size.percentage),
+);
 const lineHeightSizeOptions = Object.keys(size['line-height']);
 // const opacitySizeOptions = Object.keys(size.opacity);
 const spacingSizeOptions = Object.keys(size.spacing);
-const widthSizeOptions = Object.keys(size.dimension).concat(Object.keys(size.percentage));
+const widthSizeOptions = Object.keys(size.dimension).concat(
+  Object.keys(size.percentage),
+);
 const zIndexSizeOptions = Object.keys(size['z-index']);
 
 const BORDER_WIDTHS = 'BORDER_WIDTHS';
@@ -108,7 +112,7 @@ const FONT_FAMILY_OPTIONS = 'FONT_FAMILY_OPTIONS';
 /**
  * ICONS
  */
-const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
+const sourceIconsDir = path.join(__dirname, '..', '..', 'assets/icons/');
 const iconFiles = fs
   .readdirSync(sourceIconsDir)
   .filter(fileName => path.extname(fileName).toLowerCase() === '.svg');
@@ -348,7 +352,7 @@ const writeFile = () => {
     createIconNames(icons, false),
     BABEL_OPTIONS,
   ).code;
-  fs.writeFileSync(`${__dirname}/../../build/icons/index.js`, icons);
+  fs.writeFileSync(`${__dirname}/../../build/assets/icons/index.js`, icons);
 };
 
 module.exports = writeFile;
