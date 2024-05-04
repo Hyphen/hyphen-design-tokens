@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 
 const utilityClass = require('./formats/utilityClass/utilityClass');
 const createIconComponents = require('./utils/createIconComponents/createIconComponents');
+const createLogoComponents = require('./utils/createLogoComponents/createLogoComponents');
 
 const webPath = `build/css/`;
 const scssPath = `build/scss/`;
@@ -367,6 +368,11 @@ StyleDictionary.extend({
 createIconComponents();
 console.log('\n==============================================');
 console.log('\nReact icons created!');
+
+// Create React logos based on SVG logos.
+createLogoComponents();
+console.log('\n==============================================');
+console.log('\nReact logos created!');
 
 // From the built dictionary, generate constants of all token options.
 // File can't be required at the top since build files are a dependency for this function
