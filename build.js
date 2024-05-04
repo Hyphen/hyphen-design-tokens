@@ -11,6 +11,7 @@ const jsonPath = `build/json/`;
 const icons = `build/icons/`;
 const typesPath = `build/types/`;
 const utilitiesPath = `build/utilities/`;
+const assetPath = `build/assets/`;
 
 // before this runs we should clean the directories we are generating files in
 // to make sure they are ✨clean✨
@@ -28,6 +29,8 @@ console.log(`cleaning ${typesPath}...`);
 fs.removeSync(typesPath);
 console.log(`cleaning ${utilitiesPath}...`);
 fs.removeSync(utilitiesPath);
+console.log(`cleaning ${assetPath}...`);
+fs.removeSync(assetPath);
 
 /**
  * This function will wrap a built-in format and replace `.value` with `.darkValue`
@@ -160,6 +163,11 @@ StyleDictionary.extend({
             token.darkValue && token.attributes.category === `color`,
         },
       ],
+    },
+    assets: {
+      transformGroup: 'assets',
+      buildPath: 'build/',
+      actions: ['copy_assets'],
     },
     cssUtilities: {
       buildPath: 'build/utilities/',
@@ -354,13 +362,6 @@ StyleDictionary.extend({
     // },
   },
 }).buildAllPlatforms();
-
-// Process Icons
-const iconsSource = './icons';
-const iconsDestination = './build/icons/svg';
-fs.copySync(iconsSource, iconsDestination);
-console.log('\n==============================================');
-console.log('\nIcons successfully copied to build');
 
 // Create React components based on SVG icons.
 createIconComponents();

@@ -7,14 +7,22 @@ const createFileHeader = require('../createFileHeader/createFileHeader');
 const indentLine = require('../indentLine/indentLine');
 
 const BABEL_OPTIONS = {
-  plugins: ['@babel/plugin-transform-react-jsx', '@babel/plugin-transform-modules-commonjs'],
+  plugins: [
+    '@babel/plugin-transform-react-jsx',
+    '@babel/plugin-transform-modules-commonjs',
+  ],
 };
 
 async function createIconComponents() {
   const icons = {};
 
-  const sourceIconsDir = path.join(__dirname, '..', '..', 'icons/');
-  const buildIconsDir = path.join(__dirname, '..', '..', 'build', 'icons', 'react/');
+  const sourceIconsDir = path.join(__dirname, '..', '..', 'assets/icons/');
+  const buildIconsDir = path.join(
+    __dirname,
+    '..',
+    '..',
+    'build/assets/icons/react/',
+  );
 
   const svgFiles = fs
     .readdirSync(sourceIconsDir)
@@ -29,7 +37,11 @@ async function createIconComponents() {
     const iconName = Object.keys(icons)[i];
     const componentName = pascalCase(iconName);
 
-    const reactComponent = await svgr(icons[iconName], { icon: true }, { componentName });
+    const reactComponent = await svgr(
+      icons[iconName],
+      { icon: true },
+      { componentName },
+    );
 
     try {
       fs.readdirSync(buildIconsDir);
@@ -37,9 +49,15 @@ async function createIconComponents() {
       fs.mkdirSync(buildIconsDir);
     }
 
-    const compiledComponent = babel.transformSync(reactComponent, BABEL_OPTIONS);
+    const compiledComponent = babel.transformSync(
+      reactComponent,
+      BABEL_OPTIONS,
+    );
 
-    fs.writeFileSync(buildIconsDir + `${componentName}.js`, compiledComponent.code);
+    fs.writeFileSync(
+      buildIconsDir + `${componentName}.js`,
+      compiledComponent.code,
+    );
   }
 
   let iconComponentsIndexFile = '';
@@ -58,12 +76,20 @@ async function createIconComponents() {
     );
   }
 
-  iconComponentsExport = iconComponentsExport.concat('};\n\n export default icons;\n');
-  iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsImports);
+  iconComponentsExport = iconComponentsExport.concat(
+    '};\n\n export default icons;\n',
+  );
+  iconComponentsIndexFile = iconComponentsIndexFile.concat(
+    iconComponentsImports,
+  );
   iconComponentsIndexFile = iconComponentsIndexFile.concat('\n');
-  iconComponentsIndexFile = iconComponentsIndexFile.concat(iconComponentsExport);
+  iconComponentsIndexFile =
+    iconComponentsIndexFile.concat(iconComponentsExport);
 
-  const compiledIndex = babel.transformSync(iconComponentsIndexFile, BABEL_OPTIONS);
+  const compiledIndex = babel.transformSync(
+    iconComponentsIndexFile,
+    BABEL_OPTIONS,
+  );
   fs.writeFileSync(buildIconsDir + 'index.js', compiledIndex.code);
 }
 
