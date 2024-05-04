@@ -1,35 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
-  <defs>
-    <style>
-      .hyphen-symbol-black-a {
-        fill: url(#hyphen-symbol-black-a);
-      }
-
-      .hyphen-symbol-black-b {
-        fill: #231f20;
-      }
-
-      .hyphen-symbol-black-c {
-        fill: url(#hyphen-symbol-black-b);
-      }
-    </style>
-    <linearGradient id="hyphen-symbol-black-a" x1="208.05" y1="279.43" x2="467.45" y2="279.43"
-      gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#231f20" stop-opacity="0" />
-      <stop offset="0.26" stop-color="#231f20" stop-opacity="0.53" />
-      <stop offset="0.53" stop-color="#231f20" stop-opacity="0.88" />
-      <stop offset="0.8" stop-color="#231f20" />
-    </linearGradient>
-    <linearGradient id="hyphen-symbol-black-b" x1="-4109.69" y1="-5714.75" x2="-3823.55" y2="-5879.95"
-      gradientTransform="translate(-3799.75 -5569.65) rotate(180)" xlink:href="#hyphen-symbol-black-a" />
-  </defs>
-  <title>Hyphen Symbol BLACK</title>
-  <path class="hyphen-symbol-black-a"
-    d="M330.47,205.79C326,212.46,243,357.37,243,357.37l52.8,1c11.62,0,19.72-5,24.41-13.13l54.84-95S353.94,213,349.3,205.79,335.16,198.77,330.47,205.79Z" />
-  <path class="hyphen-symbol-black-b"
-    d="M295.75,358.4c11.62,0,19.72-5,24.41-13.13l1.46-2.53c-3.62,6-9.54,13-17.66.72-5.92-9-54-93.47-54-93.47L187.41,358.4Z" />
-  <path class="hyphen-symbol-black-c"
-    d="M169.53,294.21c4.47-6.69,87.59-151.69,87.59-151.69l-52.87-.92c-11.62,0-19.72,5-24.41,13.13L125,249.7s21.06,37.33,25.7,44.51S164.84,301.23,169.53,294.21Z" />
-  <path class="hyphen-symbol-black-b"
-    d="M204.25,141.6c-11.62,0-19.72,5-24.41,13.13l-1.46,2.53c3.62-6,9.54-13,17.66-.72,5.92,9,54,93.47,54,93.47l62.59-108.4Z" />
+<svg width="251" height="218" viewBox="0 0 251 218" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3_118)">
+<path d="M205.47 64.79C201 71.46 118 216.37 118 216.37L170.8 217.37C182.42 217.37 190.52 212.37 195.21 204.24L250.05 109.24C250.05 109.24 228.94 72 224.3 64.79C219.66 57.58 210.16 57.77 205.47 64.79Z" fill="url(#paint0_linear_3_118)"/>
+<path d="M170.75 217.4C182.37 217.4 190.47 212.4 195.16 204.27L196.62 201.74C193 207.74 187.08 214.74 178.96 202.46C173.04 193.46 124.96 108.99 124.96 108.99L62.41 217.4H170.75Z" fill="#231F20"/>
+<path d="M44.53 153.21C49 146.52 132.12 1.52 132.12 1.52L79.25 0.600006C67.63 0.600006 59.53 5.6 54.84 13.73L0 108.7C0 108.7 21.06 146.03 25.7 153.21C30.34 160.39 39.84 160.23 44.53 153.21Z" fill="url(#paint1_linear_3_118)"/>
+<path d="M79.25 0.600006C67.63 0.600006 59.53 5.6 54.84 13.73L53.38 16.26C57 10.26 62.92 3.25999 71.04 15.54C76.96 24.54 125.04 109.01 125.04 109.01L187.63 0.610001L79.25 0.600006Z" fill="#231F20"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_3_118" x1="83.05" y1="138.43" x2="342.45" y2="138.43" gradientUnits="userSpaceOnUse">
+<stop stop-color="#231F20" stop-opacity="0"/>
+<stop offset="0.26" stop-color="#231F20" stop-opacity="0.53"/>
+<stop offset="0.53" stop-color="#231F20" stop-opacity="0.88"/>
+<stop offset="0.8" stop-color="#231F20"/>
+</linearGradient>
+<linearGradient id="paint1_linear_3_118" x1="184.94" y1="4.1" x2="-101.2" y2="169.3" gradientUnits="userSpaceOnUse">
+<stop stop-color="#231F20" stop-opacity="0"/>
+<stop offset="0.26" stop-color="#231F20" stop-opacity="0.53"/>
+<stop offset="0.53" stop-color="#231F20" stop-opacity="0.88"/>
+<stop offset="0.8" stop-color="#231F20"/>
+</linearGradient>
+<clipPath id="clip0_3_118">
+<rect width="251" height="218" fill="white"/>
+</clipPath>
+</defs>
 </svg>
