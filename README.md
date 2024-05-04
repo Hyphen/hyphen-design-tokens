@@ -58,8 +58,8 @@ The library includes custom svg icons from the design system. They are provided 
 They can be pulled from the build here:
 
 ```text
-@hyphen/hyphen-design-tokens/build/icons/svg // <-- SVG ICONS
-@hyphen/hyphen-design-tokens/build/icons/svg // <-- React Components. NOTE: there is an index file that maps all icons in a dictionary, but they can also be used individually.
+@hyphen/hyphen-design-tokens/build/assets/icons/ // <-- SVG ICONS
+@hyphen/hyphen-design-tokens/build/assets/icons/react // <-- React Components. NOTE: there is an index file that maps all icons in a dictionary, but they can also be used individually.
 ```
 
 USING RAW SVGs
@@ -71,10 +71,10 @@ USING RAW SVGs
 USING REACT COMPONENTS
 
 ```react
-import UserIcon from '@hyphen/hyphen-design-tokens/build/icons/react/Add'; <-- Single Icon Import
+import UserIcon from '@hyphen/hyphen-design-tokens/build/assets/icons/react/Add'; <-- Single Icon Import
 
 // or
-import icons from '@hyphen/hyphen-design-tokens/build/icons/react; <-- Icon map
+import icons from '@hyphen/hyphen-design-tokens/build/assets/icons/react; <-- Icon map
 
 const MyUserIcon = icons['user']; <-- Use icon name to.
 
