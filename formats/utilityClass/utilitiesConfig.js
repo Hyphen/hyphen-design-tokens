@@ -3,7 +3,7 @@ const utilities = [
     name: 'background-color',
     tokenCategory: 'color',
     tokenType: 'background',
-    cssProp: 'background-color',
+    cssProp: 'background',
     variations: [''],
     responsive: false,
     hover: true,
