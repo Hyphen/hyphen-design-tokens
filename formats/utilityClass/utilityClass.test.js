@@ -87,11 +87,11 @@ const expectedOutput = `/**
  * Generated on Mon, 20 Jun 2016 12:08:10 GMT
  */
 
-.background-color-secondary { background-color: var(--color-background-secondary); }
+.background-color-secondary { background: var(--color-background-secondary); }
 
-.hover\\:background-color-secondary:hover { background-color: var(--color-background-secondary); }
+.hover\\:background-color-secondary:hover { background: var(--color-background-secondary); }
 
-.focus\\:background-color-secondary:focus { background-color: var(--color-background-secondary); }
+.focus\\:background-color-secondary:focus { background: var(--color-background-secondary); }
 
 .m-xs { margin: var(--size-spacing-xs); }
 
