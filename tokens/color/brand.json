@@ -1,0 +1,33 @@
+{
+  "color": {
+    "brand": {
+      "yellow": {
+        "value": "#ffd200"
+      },
+      "orange": {
+        "value": "#ff911e"
+      },
+      "magenta": {
+        "value": "#ff3278"
+      },
+      "dark-grey": {
+        "value": "#323237"
+      },
+      "cyan": {
+        "value": "#00b4ff"
+      },
+      "pink": {
+        "value": "#dc50ff"
+      },
+      "light-purple": {
+        "value": "#b47dff"
+      },
+      "medium-purple": {
+        "value": "#4b32aa"
+      },
+      "dark-purple": {
+        "value": "#1e1e5a"
+      }
+    }
+  }
+}

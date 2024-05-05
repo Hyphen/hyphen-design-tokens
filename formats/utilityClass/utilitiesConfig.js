@@ -10,6 +10,16 @@ const utilities = [
     focus: true,
   },
   {
+    name: 'background-color',
+    tokenCategory: 'color',
+    tokenType: 'brand',
+    cssProp: 'background-color',
+    variations: [''],
+    responsive: false,
+    hover: true,
+    focus: true,
+  },
+  {
     name: 'border-color',
     tokenCategory: 'color',
     tokenType: 'border',

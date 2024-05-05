@@ -92,6 +92,12 @@
       },
       "brand-gradient": {
         "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
+      },
+      "brand-gradient-purple": {
+        "value": "linear-gradient(0deg, {color.brand.light-purple.value} 0%, {color.brand.medium-purple.value} 100%)"
+      },
+      "brand-gradient-cyan": {
+        "value": "linear-gradient(0deg, {color.brand.cyan.value} 0%, {color.brand.pink.value} 100%)"
       }
     }
   }
