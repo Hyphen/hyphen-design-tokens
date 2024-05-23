@@ -98,6 +98,33 @@
       },
       "brand-gradient-cyan": {
         "value": "linear-gradient(60deg, {color.brand.cyan.value} 0%, {color.brand.pink.value} 100%)"
+      },
+      "brand-yellow": {
+        "value": "#ffd200"
+      },
+      "brand-orange": {
+        "value": "#ff911e"
+      },
+      "brand-magenta": {
+        "value": "#ff3278"
+      },
+      "brand-dark-grey": {
+        "value": "#323237"
+      },
+      "brand-cyan": {
+        "value": "#00b4ff"
+      },
+      "brand-pink": {
+        "value": "#dc50ff"
+      },
+      "brand-light-purple": {
+        "value": "#b47dff"
+      },
+      "brand-medium-purple": {
+        "value": "#4b32aa"
+      },
+      "brand-dark-purple": {
+        "value": "#1e1e5a"
       }
     }
   }
