@@ -9,6 +9,9 @@
         "value": "{color.base.grey.400.value}",
         "darkValue": "{color.base.grey.200.value}"
       },
+      "tertiary": {
+        "value": "{color.base.grey.300.value}"
+      },
       "white": {
         "value": "{color.base.white}",
         "darkValue": "{color.base.white}"
@@ -98,6 +101,33 @@
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.400.value}",
         "comment": "Placeholder color for input fields"
+      },
+      "brand-yellow": {
+        "value": "#ffd200"
+      },
+      "brand-orange": {
+        "value": "#ff911e"
+      },
+      "brand-magenta": {
+        "value": "#ff3278"
+      },
+      "brand-dark-grey": {
+        "value": "#323237"
+      },
+      "brand-cyan": {
+        "value": "#00b4ff"
+      },
+      "brand-pink": {
+        "value": "#dc50ff"
+      },
+      "brand-light-purple": {
+        "value": "#b47dff"
+      },
+      "brand-medium-purple": {
+        "value": "#4b32aa"
+      },
+      "brand-dark-purple": {
+        "value": "#1e1e5a"
       }
     }
   }
