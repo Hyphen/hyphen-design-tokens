@@ -4,6 +4,16 @@
 
 A central location to store shared attributes of the hyphen Design System. These attributes include: colors, fonts, spacing, and more. Using [Amazon's Style Dictionary](https://amzn.github.io/style-dictionary/) we transform attributes into usable variables for a variety of platforms.
 
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Available Tokens](#available-tokens)
+* [Local Development](#local-development)
+* [Update Tokens via file](#update-tokens-via-file)
+* [Updating Icons](#updating-icons)
+* [Releases](#releases)
+* [How to Publish to NPM](#how-to-publish-to-npm)
+
 ## Usage
 
 ### Install The package in your project
@@ -174,3 +184,17 @@ Must be one of the following:
 If your code includes major changes or any breaking changes to the codebase, I.E, a new major version, or a large refactor, that will require a pre-release,
 and more extensive testing. To publish a pre-release, open (and eventually merge) your PR against the `beta` branch. This will
 publish the package with a @beta tag which can then be easily consumed and tested by other consumers locally.
+
+## How to Publish to NPM
+
+Publishing to NPM is handled automatically by the CI/CD pipeline. Here are the steps:
+
+1. Bump the version in `package.json` to the appropriate type, and merge your PR to `main`.
+2. Create a `release` in github with the appropriate version number. This will trigger the CI/CD pipeline to publish the package to NPM.
+
+If you need to publish a pre-release, or a hotfix, you can do so manually by following these steps:
+
+1. Checkout the `main` branch
+2. Run `npm run build` to ensure the package is up to date
+3. Run `npm version [major | minor | patch | prerelease]` to bump the package version
+4. Run `npm publish --tag <insert tag>` to publish the package to NPM
