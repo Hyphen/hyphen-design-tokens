@@ -48,6 +48,10 @@
         "value": "{color.base.red.600.value}",
         "darkValue": "{color.base.red.500.value}"
       },
+      "danger-input": {
+        "value": "{color.base.grey.600.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
       "danger-disabled": {
         "value": "{color.base.red.200.value}",
         "darkValue": "{color.base.red.200.value}"
