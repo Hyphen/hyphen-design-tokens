@@ -125,6 +125,12 @@
       },
       "brand-dark-purple": {
         "value": "#1e1e5a"
+      },
+      "chart-1": {
+        "value": "{color.base.blue.700.value}"
+      },
+      "chart-2": {
+        "value": "{color.base.blue.300.value}"
       }
     }
   }
