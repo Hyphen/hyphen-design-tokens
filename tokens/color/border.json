@@ -57,6 +57,13 @@
         "value": "transparent",
         "darkValue": "transparent"
       },
+      "toast": {
+        "value": "{color.base.grey.800.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "toast-error": {
+        "value": "{color.base.red.600.value}"
+      },
       "brand-yellow": {
         "value": "#ffd200"
       },

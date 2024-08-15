@@ -90,6 +90,13 @@
         "value": "{color.base.red.700.value}",
         "darkValue": "{color.base.red.700.value}"
       },
+      "toast": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.50.value}"
+      },
+      "toast-error": {
+        "value": "{color.base.red.500.value}"
+      },
       "brand-gradient": {
         "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
       },
@@ -131,6 +138,9 @@
       },
       "chart-2": {
         "value": "{color.base.blue.300.value}"
+      },
+      "white": {
+        "value": "{color.base.white.value}"
       }
     }
   }
