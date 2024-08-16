@@ -68,7 +68,7 @@
         "darkValue": "{color.base.primary.500.value}"
       },
       "button-secondary": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.primary.400.value}",
         "darkValue": "{color.base.white}"
       },
       "button-secondary-hover": {
@@ -80,7 +80,7 @@
         "darkValue": "{color.base.white}"
       },
       "button-tertiary": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.primary.400.value}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary-hover": {
