@@ -12,8 +12,8 @@
       "sm": { "value": 0.25 },
       "md": { "value": 0.5 },
       "lg": { "value": 0.625 },
-      "xl": { "value": 1 },
-      "2xl": { "value": 1.25 },
+      "xl": { "value": 0.75 },
+      "2xl": { "value": 1 },
       "3xl": { "value": 2 }
     }
   }
