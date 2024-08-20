@@ -12,6 +12,9 @@
       "tertiary": {
         "value": "{color.base.grey.300.value}"
       },
+      "grey": {
+        "value": "{color.base.grey.600.value}"
+      },
       "white": {
         "value": "{color.base.white}"
       },
