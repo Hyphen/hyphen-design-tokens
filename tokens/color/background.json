@@ -13,6 +13,10 @@
         "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.900.value}"
       },
+      "disabled": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.900.value}"
+      },
       "success": {
         "value": "{color.base.green.50.value}",
         "darkValue": "{color.base.green.50.value}"
