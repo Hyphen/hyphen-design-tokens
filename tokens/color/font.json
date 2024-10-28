@@ -15,6 +15,9 @@
       "grey": {
         "value": "{color.base.grey.600.value}"
       },
+      "black": {
+        "value": "{color.base.black}"
+      },
       "white": {
         "value": "{color.base.white}"
       },

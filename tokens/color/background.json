@@ -155,6 +155,9 @@
       "chart-3": {
         "value": "{color.base.blue.500.value}"
       },
+      "black": {
+        "value": "{color.base.black.value}"
+      },
       "white": {
         "value": "{color.base.white.value}"
       }
