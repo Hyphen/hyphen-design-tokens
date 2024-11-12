@@ -265,6 +265,16 @@ const utilities = [
     hover: false,
     focus: false,
   },
+  {
+    name: 'line-height',
+    tokenCategory: 'size',
+    tokenType: 'line-height',
+    cssProp: 'line-height',
+    variations: [''],
+    responsive: false,
+    hover: true,
+    focus: true,
+  }
 ];
 
 module.exports = utilities;
