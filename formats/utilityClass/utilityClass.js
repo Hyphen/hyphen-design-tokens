@@ -204,7 +204,7 @@ const utilityClass = {
       /**
        * Focus States
        */
-      const focusUtilities = utilities.filter(utility => utility.hover);
+      const focusUtilities = utilities.filter(utility => utility.focus);
       output += processUtilities(focusUtilities, prop, null, {
         state: 'focus',
       });
