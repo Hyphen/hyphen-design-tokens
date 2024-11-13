@@ -1,6 +1,9 @@
 {
   "size": {
     "line-height": {
+      "none": {
+        "value": "1"
+      },
       "base": {
         "value": "1.25"
       },

@@ -1,0 +1,21 @@
+{
+  "font": {
+    "text-decoration-style": {
+      "solid": {
+        "value": "solid"
+      },
+      "double": {
+        "value": "double"
+      },
+      "dotted": {
+        "value": "dotted"
+      },
+      "dashed": {
+        "value": "dashed"
+      },
+      "wavy": {
+        "value": "wavy"
+      }
+    }
+  }
+}

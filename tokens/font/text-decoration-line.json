@@ -1,0 +1,15 @@
+{
+  "font": {
+    "text-decoration-line": {
+      "none": {
+        "value": "none"
+      },
+      "underline": {
+        "value": "underline"
+      },
+      "line-through": {
+        "value": "line-through"
+      }
+    }
+  }
+}
