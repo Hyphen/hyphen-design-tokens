@@ -34,6 +34,21 @@
       "5xl": {
         "value": "4"
       },
+      "6xl": {
+        "value": "6"
+      },
+      "7xl": {
+        "value": "8"
+      },
+      "8xl": {
+        "value": "10"
+      },
+      "9xl": {
+        "value": "12"
+      },
+      "10xl": {
+        "value": "16"
+      },
       "auto": {
         "value": "auto"
       }
