@@ -1,6 +1,6 @@
 {
   "name": "@hyphen/hyphen-design-tokens",
-  "version": "4.18.0",
+  "version": "4.19.0",
   "description": "Design tokens that power all Hyphen UIs.",
   "main": "build/index.js",
   "files": [
