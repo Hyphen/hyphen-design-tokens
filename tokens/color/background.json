@@ -105,6 +105,10 @@
       "toast-error": {
         "value": "{color.base.red.500.value}"
       },
+      "tooltip": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.50.value}"
+      },
       "brand-gradient": {
         "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
       },
