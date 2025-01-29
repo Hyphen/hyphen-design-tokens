@@ -113,6 +113,10 @@
       "toast-error": {
         "value": "{color.base.white.value}"
       },
+      "tooltip": {
+        "value": "{color.base.grey.50.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
       "placeholder": {
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.400.value}",
