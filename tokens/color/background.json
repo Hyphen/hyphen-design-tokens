@@ -94,6 +94,13 @@
         "value": "{color.base.red.700.value}",
         "darkValue": "{color.base.red.700.value}"
       },
+      "scrollbar-thumb": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.500.value}"
+      },
+      "scrollbar-track": {
+        "value": "transparent"
+      },
       "modal": {
         "value": "{color.base.white.value}",
         "darkValue": "{color.base.grey.700.value}"
