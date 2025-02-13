@@ -69,6 +69,10 @@
         "value": "transparent",
         "darkValue": "transparent"
       },
+      "sidebar-rail-hover": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.400.value}"
+      },
       "toast": {
         "value": "{color.base.grey.800.value}",
         "darkValue": "{color.base.grey.100.value}"
