@@ -22,9 +22,9 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@babel/plugin-transform-react-jsx": "^7.12.7",
+    "@babel/core": "^7.26.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@babel/plugin-transform-react-jsx": "^7.25.9",
     "@semantic-release/commit-analyzer": "^11.1.0",
     "@svgr/core": "^5.5.0",
     "babel-preset-env": "^1.7.0",
