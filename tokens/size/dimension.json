@@ -48,6 +48,18 @@
       },
       "10xl": {
         "value": "64"
+      },
+      "fit": {
+        "value": "fit-content"
+      },
+      "min": {
+        "value": "min-content"
+      },
+      "max": {
+        "value": "max-content"
+      },
+      "auto": {
+        "value": "auto"
       }
     },
     "percentage": {
