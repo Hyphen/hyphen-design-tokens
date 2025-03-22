@@ -1,9 +1,9 @@
-const StyleDictionary = require('style-dictionary');
-const fs = require('fs-extra');
+const StyleDictionary = require("style-dictionary");
+const fs = require("fs-extra");
 
-const utilityClass = require('./formats/utilityClass/utilityClass');
-const createIconComponents = require('./utils/createIconComponents/createIconComponents');
-const createLogoComponents = require('./utils/createLogoComponents/createLogoComponents');
+const utilityClass = require("./formats/utilityClass/utilityClass");
+const createIconComponents = require("./utils/createIconComponents/createIconComponents");
+const createLogoComponents = require("./utils/createLogoComponents/createLogoComponents");
 
 const webPath = `build/css/`;
 const scssPath = `build/scss/`;
@@ -43,7 +43,7 @@ function darkFormatWrapper(format) {
   return function (args) {
     const dictionary = Object.assign({}, args.dictionary);
     // Override each token's `value` with `darkValue`
-    dictionary.allTokens = dictionary.allTokens.map(token => {
+    dictionary.allTokens = dictionary.allTokens.map((token) => {
       const { darkValue } = token;
       if (darkValue) {
         return Object.assign({}, token, {
@@ -65,42 +65,49 @@ function darkFormatWrapper(format) {
 }
 
 StyleDictionary.registerTransform({
-  name: 'size/remAuto',
-  type: 'value',
+  name: "size/remAuto",
+  type: "value",
   matcher: function (token) {
-    return token.attributes.category === 'size';
+    return token.attributes.category === "size";
   },
   transformer: function (token) {
-    if (token.value === 'auto') return token.value;
+    if (
+      token.value === "auto" ||
+      token.value === "fit-content" ||
+      token.value === "min-content" ||
+      token.value === "max-content"
+    )
+      return token.value;
+
     const val = parseFloat(token.value);
-    if (isNaN(val)) throwSizeError(token.name, token.value, 'rem');
-    return val + 'rem';
+    if (isNaN(val)) throwSizeError(token.name, token.value, "rem");
+    return val + "rem";
   },
 });
 
 StyleDictionary.registerTransform({
-  name: 'size/breakpoint',
-  type: 'value',
+  name: "size/breakpoint",
+  type: "value",
   matcher: function (token) {
     return (
-      token.attributes.category === 'size' &&
-      token.attributes.type === 'breakpoint'
+      token.attributes.category === "size" &&
+      token.attributes.type === "breakpoint"
     );
   },
   transformer: function (token) {
-    return parseInt(token.original.value).toString() + 'px';
+    return parseInt(token.original.value).toString() + "px";
   },
 });
 
 StyleDictionary.registerTransform({
-  name: 'size/unitless',
-  type: 'value',
+  name: "size/unitless",
+  type: "value",
   matcher: function (token) {
     return (
-      token.attributes.type === 'font-weight' ||
-      token.attributes.type === 'z-index' ||
-      token.attributes.type === 'line-height' ||
-      token.attributes.type === 'box-shadow'
+      token.attributes.type === "font-weight" ||
+      token.attributes.type === "z-index" ||
+      token.attributes.type === "line-height" ||
+      token.attributes.type === "box-shadow"
     );
   },
   transformer: function (token) {
@@ -109,23 +116,23 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'size/percentage',
-  type: 'value',
+  name: "size/percentage",
+  type: "value",
   matcher: function (token) {
     return (
-      token.attributes.category === 'size' &&
-      token.attributes.type === 'percentage'
+      token.attributes.category === "size" &&
+      token.attributes.type === "percentage"
     );
   },
   transformer: function (token) {
-    return parseInt(token.original.value).toString() + '%';
+    return parseInt(token.original.value).toString() + "%";
   },
 });
 
 StyleDictionary.registerFormat(utilityClass);
 
 StyleDictionary.extend({
-  source: ['tokens/**/*.json'],
+  source: ["tokens/**/*.json"],
 
   format: {
     cssDark: darkFormatWrapper(`css/variables`),
@@ -134,110 +141,110 @@ StyleDictionary.extend({
   platforms: {
     css: {
       transforms: [
-        'attribute/cti',
-        'name/cti/kebab',
-        'color/css',
-        'size/remAuto',
-        'size/breakpoint',
-        'size/percentage',
-        'size/unitless',
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/css",
+        "size/remAuto",
+        "size/breakpoint",
+        "size/percentage",
+        "size/unitless",
       ],
       buildPath: webPath,
       files: [
         {
-          destination: 'variables.css',
-          format: 'css/variables',
+          destination: "variables.css",
+          format: "css/variables",
         },
         // for dark mode using "dark" class applied to root
         {
           destination: `variables-root-dark.css`,
-          options: { selector: ':root.dark' },
+          options: { selector: ":root.dark" },
           format: `cssDark`,
-          filter: token =>
+          filter: (token) =>
             token.darkValue && token.attributes.category === `color`,
         },
         // for dark mode using prefers-color-scheme
         {
           destination: `variables-dark.css`,
           format: `cssDark`,
-          filter: token =>
+          filter: (token) =>
             token.darkValue && token.attributes.category === `color`,
         },
       ],
     },
     assets: {
-      transformGroup: 'assets',
-      buildPath: 'build/',
-      actions: ['copy_assets'],
+      transformGroup: "assets",
+      buildPath: "build/",
+      actions: ["copy_assets"],
     },
     cssUtilities: {
-      buildPath: 'build/utilities/',
+      buildPath: "build/utilities/",
       transforms: [
-        'attribute/cti',
-        'name/cti/kebab',
-        'time/seconds',
-        'content/icon',
-        'color/css',
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "color/css",
       ],
       files: [
         {
-          destination: 'utilities.css',
-          format: 'css/utility-classes',
+          destination: "utilities.css",
+          format: "css/utility-classes",
         },
       ],
     },
     json: {
       transforms: [
-        'attribute/cti',
-        'name/cti/pascal',
-        'size/remAuto',
-        'size/breakpoint',
-        'color/hex',
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/remAuto",
+        "size/breakpoint",
+        "color/hex",
       ],
-      buildPath: 'build/json/',
+      buildPath: "build/json/",
       files: [
         {
-          destination: 'variables.json',
-          format: 'json',
+          destination: "variables.json",
+          format: "json",
         },
       ],
     },
     js: {
       transforms: [
-        'attribute/cti',
-        'name/cti/pascal',
-        'size/remAuto',
-        'size/breakpoint',
-        'color/hex',
+        "attribute/cti",
+        "name/cti/pascal",
+        "size/remAuto",
+        "size/breakpoint",
+        "color/hex",
       ],
-      buildPath: 'build/js/',
+      buildPath: "build/js/",
       files: [
         {
-          destination: 'variables.js',
-          format: 'javascript/object',
+          destination: "variables.js",
+          format: "javascript/object",
         },
       ],
     },
     scss: {
       transforms: [
-        'attribute/cti',
-        'name/cti/kebab',
-        'color/css',
-        'size/remAuto',
-        'size/breakpoint',
-        'size/percentage',
-        'size/unitless',
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/css",
+        "size/remAuto",
+        "size/breakpoint",
+        "size/percentage",
+        "size/unitless",
       ],
-      buildPath: 'build/scss/',
+      buildPath: "build/scss/",
       files: [
         {
-          destination: 'variables.scss',
-          format: 'scss/variables',
+          destination: "variables.scss",
+          format: "scss/variables",
         },
         {
           destination: `variables-dark.scss`,
           format: `cssDark`,
-          filter: token =>
+          filter: (token) =>
             token.darkValue && token.attributes.category === `color`,
         },
       ],
@@ -366,18 +373,18 @@ StyleDictionary.extend({
 
 // Create React components based on SVG icons.
 createIconComponents();
-console.log('\n==============================================');
-console.log('\nReact icons created!');
+console.log("\n==============================================");
+console.log("\nReact icons created!");
 
 // Create React logos based on SVG logos.
 createLogoComponents();
-console.log('\n==============================================');
-console.log('\nReact logos created!');
+console.log("\n==============================================");
+console.log("\nReact logos created!");
 
 // From the built dictionary, generate constants of all token options.
 // File can't be required at the top since build files are a dependency for this function
 // and they do not exist until the style dictionary is built.
-const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
+const generateTokenTypes = require("./utils/generateTokenTypes/generateTokenTypes");
 generateTokenTypes();
-console.log('\n==============================================');
-console.log('\nToken types generated!');
+console.log("\n==============================================");
+console.log("\nToken types generated!");
