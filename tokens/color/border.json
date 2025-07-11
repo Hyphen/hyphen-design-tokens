@@ -9,6 +9,10 @@
         "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
+      "transparent": {
+        "value": "transparent",
+        "darkValue": "transparent"
+      },
       "hover": {
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.600.value}"
@@ -106,6 +110,12 @@
       },
       "brand-dark-purple": {
         "value": "#1e1e5a"
+      },
+      "black": {
+        "value": "{color.base.black.value}"
+      },
+      "white": {
+        "value": "{color.base.white.value}"
       }
     }
   }
