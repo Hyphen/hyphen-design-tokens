@@ -128,6 +128,10 @@
         "value": "{color.base.grey.200.value}",
         "darkValue": "{color.base.grey.400.value}"
       },
+      "checkbox-checked": {
+        "value": "{color.base.grey.600.value}",
+        "darkValue": "{color.base.white.value}"
+      },
       "brand-gradient": {
         "value": "linear-gradient(60deg, {color.base.yellow.500.value} 0%, {color.base.magenta.value} 100%)"
       },
