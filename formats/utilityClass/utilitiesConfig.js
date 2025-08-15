@@ -309,7 +309,6 @@ const utilities = [
     hover: false,
     focus: false,
   },
-
   {
     name: "white-space",
     abbreviation: "whitespace",
@@ -317,7 +316,7 @@ const utilities = [
     tokenType: "white-space",
     cssProp: "white-space",
     variations: [""],
-    responsive: false,
+    responsive: true,
     hover: false,
     focus: false,
   },
