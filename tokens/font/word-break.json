@@ -4,10 +4,10 @@
       "normal": {
         "value": "normal"
       },
-      "break-all": {
+      "all": {
         "value": "break-all"
       },
-      "keep-all": {
+      "keep": {
         "value": "keep-all"
       }
     }
