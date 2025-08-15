@@ -1,0 +1,15 @@
+{
+  "font": {
+    "word-break": {
+      "normal": {
+        "value": "normal"
+      },
+      "break-all": {
+        "value": "break-all"
+      },
+      "keep-all": {
+        "value": "keep-all"
+      }
+    }
+  }
+}

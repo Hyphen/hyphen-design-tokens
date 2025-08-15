@@ -1,0 +1,24 @@
+{
+  "font": {
+    "white-space": {
+      "normal": {
+        "value": "normal"
+      },
+      "nowrap": {
+        "value": "nowrap"
+      },
+      "pre": {
+        "value": "pre"
+      },
+      "pre-line": {
+        "value": "pre-line"
+      },
+      "pre-wrap": {
+        "value": "pre-wrap"
+      },
+      "break-spaces": {
+        "value": "break-spaces"
+      }
+    }
+  }
+}
