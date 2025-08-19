@@ -124,6 +124,10 @@
         "value": "{color.base.grey.700.value}",
         "darkValue": "{color.base.grey.50.value}"
       },
+      "popover": {
+        "value": "{color.base.white.value}",
+        "darkValue": "{color.base.grey.700.value}"
+      },
       "slider": {
         "value": "{color.base.grey.200.value}",
         "darkValue": "{color.base.grey.400.value}"

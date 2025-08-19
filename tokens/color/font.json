@@ -117,6 +117,10 @@
         "value": "{color.base.grey.50.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
+      "popover": {
+        "value": "{color.base.grey.600.value}",
+        "darkValue": "{color.base.grey.50.value}"
+      },
       "placeholder": {
         "value": "{color.base.grey.300.value}",
         "darkValue": "{color.base.grey.400.value}",
