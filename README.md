@@ -5,50 +5,44 @@
 A central location to store shared attributes of the hyphen Design System. These attributes include: colors, fonts, spacing, and more. Using [Amazon's Style Dictionary](https://amzn.github.io/style-dictionary/) we transform attributes into usable variables for a variety of platforms.
 
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
-* [Available Tokens](#available-tokens)
-* [Local Development](#local-development)
-* [Update Tokens via file](#update-tokens-via-file)
-* [Updating Icons](#updating-icons)
-* [Releases](#releases)
-* [How to Publish to NPM](#how-to-publish-to-npm)
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Available Tokens](#available-tokens)
+- [Local Development](#local-development)
+- [Update Tokens via file](#update-tokens-via-file)
+- [Updating Icons](#updating-icons)
+- [Releases](#releases)
+- [How to Publish to NPM](#how-to-publish-to-npm)
 
 ## Usage
 
 ### Install The package in your project
 
 ```terminal
-npm install @hyphen/hyphen-design-tokens
-```
-
-or
-
-```terminal
-yarn add @hyphen/hyphen-design-tokens
+pnpm add @hyphen/hyphen-design-tokens
 ```
 
 ### Import tokens into your project based on your platform requirements
 
 Ideally you'd want to import them into a file that exposes them to your entire application.
 
-
 CSS Variables imported into a .css file
 
 ```css
-@import '~@hyphen/hyphen-design-tokens/build/css/variables.css'
+@import "~@hyphen/hyphen-design-tokens/build/css/variables.css";
 ```
 
 SASS Variables imported into a .scss file
 
 ```scss
-@import '~@hyphen/hyphen-design-tokens/build/scss/variables.scss'
+@import "~@hyphen/hyphen-design-tokens/build/scss/variables.scss";
 ```
 
 CSS Utility Classes imported into a .css file
 
 ```css
-@import '~@hyphen/hyphen-design-tokens/build/utilities/utilities.css'
+@import "~@hyphen/hyphen-design-tokens/build/utilities/utilities.css";
 ```
 
 ### Use variables as needed
@@ -56,10 +50,11 @@ CSS Utility Classes imported into a .css file
 CSS
 
 ```css
-.class-with-base-text-color: { color: var(--color-font-base); }
+.class-with-base-text-color: {
+  color: var(--color-font-base);
+}
 --my-own-shadow-variable: 1rem 1rem var(--color-base-black);
 ```
-
 
 ### Using Icons
 
@@ -75,7 +70,7 @@ They can be pulled from the build here:
 USING RAW SVGs
 
 ```html
-<img src="../user.svg" alt="user">
+<img src="../user.svg" alt="user" />
 ```
 
 USING REACT COMPONENTS
@@ -97,28 +92,28 @@ import { IconName } from '@hyphen/hyphen-design-tokens/build/types';
 
 ## Available Tokens
 
-* Assets
-  * Font Family
-* Color
-  * Brand
-  * Font
-  * Border
-* Size
-  * Border
-  * Border Radius
-  * Box Shadow
-  * Breakpoint
-  * Height
-  * Font Size
-  * Font Weight
-  * Line-Height
-  * Spacing
-  * Width
-  * Z-Index
+- Assets
+  - Font Family
+- Color
+  - Brand
+  - Font
+  - Border
+- Size
+  - Border
+  - Border Radius
+  - Box Shadow
+  - Breakpoint
+  - Height
+  - Font Size
+  - Font Weight
+  - Line-Height
+  - Spacing
+  - Width
+  - Z-Index
 
 ## Local Development
 
-To build tokens locally run `npm run build` or `yarn build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
+To build tokens locally run `pnpm run build`. NOTE: you will need a local `.env` file with a Figma access token assigned to `FIGMA_PERSONAL_ACCESS_TOKEN`. See [HOW TO GET A FIGMA ACCESS TOKEN](https://www.figma.com/developers/api#authentication). If you are still unsure how to get a working access token, or the process is not working for you, please reach out to one of our library owners.
 
 In order to test any local changes you'll need to build tokens, and symlink your local package into any project that consumes it. See [NPM link](https://docs.npmjs.com/cli/link) or [Yarn link](https://classic.yarnpkg.com/en/docs/cli/link/) for more details.
 
@@ -130,21 +125,21 @@ TDB
 
 The build process handles the following:
 
-* mapping any svg icons in the `/icons` folder into the appropriate build directory
-* updating the `IconName` type based on the file names in the directory.
-* Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
-* Regenerating the icons index map for use in react applications.
+- mapping any svg icons in the `/icons` folder into the appropriate build directory
+- updating the `IconName` type based on the file names in the directory.
+- Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
+- Regenerating the icons index map for use in react applications.
 
 As a developer, to update icons all that needs to be done is add them to the `/icons` folder with the name that you want the icon to have. Please follow
 these rules when exporting and adding icons:
 
-* SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
-* SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
-* SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
-* Remove any `classNames` or `title` that might be in the svg file
-* SVG files should be named using `kebab-case`.
-* Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
-* Open a pull request and get it approved for publishing
+- SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
+- SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
+- SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
+- Remove any `classNames` or `title` that might be in the svg file
+- SVG files should be named using `kebab-case`.
+- Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
+- Open a pull request and get it approved for publishing
 
 ## Releases
 
@@ -162,22 +157,22 @@ Must be one of the following:
 
 ### Major
 
-* **BREAKING CHANGE**: A set of breaking changes.
+- **BREAKING CHANGE**: A set of breaking changes.
 
 ### Minor
 
-* **feat**: A new feature
+- **feat**: A new feature
 
 ### Patch
 
-* **fix**: A bug fix
-* **perf**: A code change that improves performance
-* **ci**: A change to our CI pipelines/workflows.
-* **build**: A change to the library build process (That does not break the consumer API).
-* **test**: Added or improved testing in some area of the library.
-* **refactor**: Changed code structure without affecting features.
-* **docs**: Added to, or improved documentation.
-* **style**: Change in code style without affecting features.
+- **fix**: A bug fix
+- **perf**: A code change that improves performance
+- **ci**: A change to our CI pipelines/workflows.
+- **build**: A change to the library build process (That does not break the consumer API).
+- **test**: Added or improved testing in some area of the library.
+- **refactor**: Changed code structure without affecting features.
+- **docs**: Added to, or improved documentation.
+- **style**: Change in code style without affecting features.
 
 ### Prerelease
 
@@ -195,6 +190,6 @@ Publishing to NPM is handled automatically by the CI/CD pipeline. Here are the s
 If you need to publish a pre-release, or a hotfix, you can do so manually by following these steps:
 
 1. Checkout the `main` branch
-2. Run `npm run build` to ensure the package is up to date
+2. Run `pnpm run build` to ensure the package is up to date
 3. Run `npm version [major | minor | patch | prerelease]` to bump the package version
 4. Run `npm publish --tag <insert tag>` to publish the package to NPM

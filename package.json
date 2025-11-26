@@ -13,6 +13,7 @@
     "clean": "rm -rf build",
     "semantic-release": "semantic-release"
   },
+  "packageManager": "pnpm@10.20.0",
   "repository": "https://github.com/hyphen/hyphen-design-tokens.git",
   "author": "Matthew Osborn <matthew.osborn@hyphen.ai>",
   "license": "MIT",
