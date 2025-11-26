@@ -95,20 +95,30 @@ import { IconName } from '@hyphen/hyphen-design-tokens/build/types';
 - Assets
   - Font Family
 - Color
+  - Background
+  - Base
+  - Border
   - Brand
   - Font
-  - Border
+- Font
+  - Text Decoration Line
+  - Text Decoration Style
+  - Text Transform
+  - Text Wrap
+  - White Space
+  - Word Break
 - Size
-  - Border
   - Border Radius
+  - Border Width
   - Box Shadow
   - Breakpoint
-  - Height
+  - Dimension
   - Font Size
   - Font Weight
-  - Line-Height
+  - Heading
+  - Line Height
+  - Percentage
   - Spacing
-  - Width
   - Z-Index
 
 ## Local Development
