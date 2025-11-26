@@ -37,6 +37,6 @@ jobs:
 
       - name: Publish
         run: |
-          pnpm publish --ignore-scripts
+          pnpm publish --no-git-checks --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
