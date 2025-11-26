@@ -332,6 +332,17 @@ const utilities = [
     focus: false,
   },
   {
+    name: "text-wrap",
+    abbreviation: "text-wrap",
+    tokenCategory: "font",
+    tokenType: "text-wrap",
+    cssProp: "text-wrap",
+    variations: [""],
+    responsive: true,
+    hover: false,
+    focus: false,
+  },
+  {
     name: "z-index",
     abbreviation: "z",
     tokenCategory: "size",

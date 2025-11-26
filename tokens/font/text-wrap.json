@@ -1,0 +1,30 @@
+{
+  "font": {
+    "text-wrap": {
+      "wrap": {
+        "value": "wrap"
+      },
+      "nowrap": {
+        "value": "nowrap"
+      },
+      "balance": {
+        "value": "balance"
+      },
+      "pretty": {
+        "value": "pretty"
+      },
+      "stable": {
+        "value": "stable"
+      },
+      "inherit": {
+        "value": "inherit"
+      },
+      "initial": {
+        "value": "initial"
+      },
+      "unset": {
+        "value": "unset"
+      }
+    }
+  }
+}
