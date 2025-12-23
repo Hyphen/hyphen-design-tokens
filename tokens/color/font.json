@@ -41,11 +41,11 @@
         "value": "{color.base.blue.600.value}",
         "darkValue": "{color.base.blue.500.value}"
       },
-      "warn": {
+      "warning": {
         "value": "{color.base.yellow.600.value}",
         "darkValue": "{color.base.yellow.500.value}"
       },
-      "warn-disabled": {
+      "warning-disabled": {
         "value": "{color.base.yellow.200.value}",
         "darkValue": "{color.base.yellow.200.value}"
       },
