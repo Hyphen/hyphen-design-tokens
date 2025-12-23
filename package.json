@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@svgr/core": "^5.5.0",
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.5",
     "@babel/plugin-transform-modules-commonjs": "^7.27.1",
     "@babel/plugin-transform-react-jsx": "^7.27.1",
     "@semantic-release/commit-analyzer": "^13.0.1",
