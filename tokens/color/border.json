@@ -37,6 +37,10 @@
         "value": "{color.base.blue.200.value}",
         "darkValue": "{color.base.blue.200.value}"
       },
+      "success": {
+        "value": "{color.base.green.200.value}",
+        "darkValue": "{color.base.green.200.value}"
+      },
       "button-primary": {
         "value": "{color.base.grey.800.value}",
         "darkValue": "{color.base.white.value}"
@@ -120,6 +124,15 @@
       },
       "white": {
         "value": "{color.base.white.value}"
+      },
+      "green": {
+        "value": "{color.base.green.500.value}"
+      },
+      "red": {
+        "value": "{color.base.red.500.value}"
+      },
+      "purple": {
+        "value": "{color.base.purple.500.value}"
       }
     }
   }
