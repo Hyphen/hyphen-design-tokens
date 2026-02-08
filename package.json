@@ -35,6 +35,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "semantic-release": "^22.0.12",
-    "style-dictionary": "^3.9.2"
+    "style-dictionary": "^4.3.0"
   }
 }
