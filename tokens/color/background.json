@@ -63,7 +63,7 @@
         "darkValue": "{color.base.grey.800.value}"
       },
       "button-secondary-hover": {
-        "value": "{color.base.primary.50.value}",
+        "value": "{color.base.grey.50.value}",
         "darkValue": "{color.base.grey.600.value}"
       },
       "button-secondary-active": {

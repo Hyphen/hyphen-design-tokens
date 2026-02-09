@@ -63,38 +63,38 @@
       },
       "button-primary": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.primary.500.value}"
+        "darkValue": "{color.base.grey.500.value}"
       },
       "button-primary-hover": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.primary.500.value}"
+        "darkValue": "{color.base.grey.500.value}"
       },
       "button-primary-active": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.primary.500.value}"
+        "darkValue": "{color.base.grey.500.value}"
       },
       "button-secondary": {
-        "value": "{color.base.primary.400.value}",
+        "value": "{color.base.grey.400.value}",
         "darkValue": "{color.base.white}"
       },
       "button-secondary-hover": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.grey.500.value}",
         "darkValue": "{color.base.white}"
       },
       "button-secondary-active": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.grey.500.value}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary": {
-        "value": "{color.base.primary.400.value}",
+        "value": "{color.base.grey.400.value}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary-hover": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.grey.500.value}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary-active": {
-        "value": "{color.base.primary.500.value}",
+        "value": "{color.base.grey.500.value}",
         "darkValue": "{color.base.white}"
       },
       "button-danger": {
