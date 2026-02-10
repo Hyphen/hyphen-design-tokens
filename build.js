@@ -60,7 +60,8 @@ function darkFormatWrapper(format) {
 
     // Use the built-in format but with our customized dictionary object
     // so it will output the darkValue instead of the value
-    return StyleDictionary.format[format]({ ...args, dictionary });
+    const formats = StyleDictionary.format || StyleDictionary.formats;
+    return formats[format]({ ...args, dictionary });
   };
 }
 
