@@ -39,7 +39,7 @@
       },
       "info": {
         "value": "{color.base.blue.600.value}",
-        "darkValue": "{color.base.blue.500.value}"
+        "darkValue": "{color.base.blue.400.value}"
       },
       "warning": {
         "value": "{color.base.yellow.600.value}",
