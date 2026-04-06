@@ -102,7 +102,7 @@
         "value": "{color.base.grey.100.value}",
         "darkValue": "{color.base.grey.700.value}"
       },
-      "badge-destructive": {
+      "badge-danger": {
         "value": "{color.base.red.50.value}",
         "darkValue": "{color.base.red.900.value}"
       },
