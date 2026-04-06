@@ -77,6 +77,22 @@
         "value": "transparent",
         "darkValue": "transparent"
       },
+      "badge-default": {
+        "value": "{color.base.grey.800.value}",
+        "darkValue": "{color.base.white.value}"
+      },
+      "badge-secondary": {
+        "value": "{color.base.grey.100.value}",
+        "darkValue": "{color.base.grey.700.value}"
+      },
+      "badge-destructive": {
+        "value": "{color.base.red.100.value}",
+        "darkValue": "{color.base.red.800.value}"
+      },
+      "badge-outline": {
+        "value": "{color.base.grey.200.value}",
+        "darkValue": "{color.base.grey.600.value}"
+      },
       "sidebar-rail-hover": {
         "value": "{color.base.grey.200.value}",
         "darkValue": "{color.base.grey.400.value}"
