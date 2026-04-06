@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "node build.js",
+    "prepack": "pnpm run build",
     "test": "jest",
     "clean": "rm -rf build",
     "semantic-release": "semantic-release"
