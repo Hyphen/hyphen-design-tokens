@@ -106,6 +106,22 @@
       "button-danger-active": {
         "value": "{color.base.white}"
       },
+      "badge-default": {
+        "value": "{color.base.white}",
+        "darkValue": "{color.base.grey.800.value}"
+      },
+      "badge-secondary": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
+      "badge-destructive": {
+        "value": "{color.base.red.600.value}",
+        "darkValue": "{color.base.red.400.value}"
+      },
+      "badge-outline": {
+        "value": "{color.base.grey.700.value}",
+        "darkValue": "{color.base.grey.100.value}"
+      },
       "toast": {
         "value": "{color.base.grey.50.value}",
         "darkValue": "{color.base.grey.600.value}"
