@@ -193,9 +193,14 @@ Publishing to NPM is handled automatically by the CI/CD pipeline. Here are the s
 1. Bump the version in `package.json` to the appropriate type, and merge your PR to `main`.
 2. Create a `release` in github with the appropriate version number. This will trigger the CI/CD pipeline to publish the package to NPM.
 
-If you need to publish a pre-release, or a hotfix, you can do so manually by following these steps:
+### Publish From the npm CLI
+
+If you need to publish a pre-release, or a hotfix, you can do so manually from the command line:
 
 1. Checkout the `main` branch
-2. Run `pnpm run build` to ensure the package is up to date
-3. Run `pnpm version [major | minor | patch | prerelease]` to bump the package version
-4. Run `pnpm publish --tag <insert tag>` to publish the package to NPM
+2. Run `npm version [major | minor | patch | prerelease]` to bump the package version
+3. Run `npm publish` to publish the package to NPM
+
+The package build runs automatically during `npm publish` via the `prepack` script, so you do not need to run the build manually first.
+
+If you need to publish under a non-default tag, use `npm publish --tag <tag>`.
