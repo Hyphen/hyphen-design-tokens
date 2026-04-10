@@ -1,7 +1,7 @@
 const utilityClass = require('./utilityClass');
 
 const mockDictionary = {
-  allProperties: [
+  allTokens: [
     {
       value: '#f3f4f6',
       darkValue: '#1f2937',

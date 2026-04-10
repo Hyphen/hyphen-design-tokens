@@ -168,7 +168,8 @@ const utilityClass = {
   name: 'css/utility-classes',
   formatter: function (dictionary) {
     let output = createFileHeader();
-    const breakpoints = dictionary.allProperties.filter(
+    const allTokens = dictionary.allTokens || dictionary.allProperties || [];
+    const breakpoints = allTokens.filter(
       prop => prop.attributes.type === 'breakpoint',
     );
     /**
@@ -190,7 +191,7 @@ const utilityClass = {
      * to CSS hierarchy of border and border-color properties. In order for border-color to successfully
      * override border it has to be declared after border.
      */
-    dictionary.allProperties.forEach(prop => {
+    allTokens.forEach(prop => {
       output += processUtilities(utilities, prop);
 
       /**
@@ -220,7 +221,7 @@ const utilityClass = {
         utility => utility.focus,
       );
 
-      dictionary.allProperties.forEach(prop => {
+      allTokens.forEach(prop => {
         responsiveUtilityClasses += processUtilities(
           responsiveUtilities,
           prop,
@@ -231,7 +232,7 @@ const utilityClass = {
         );
       });
 
-      dictionary.allProperties.forEach(prop => {
+      allTokens.forEach(prop => {
         responsiveUtilityClasses += processUtilities(
           responsiveAndHoverUtilities,
           prop,
@@ -243,7 +244,7 @@ const utilityClass = {
         );
       });
 
-      dictionary.allProperties.forEach(prop => {
+      allTokens.forEach(prop => {
         responsiveUtilityClasses += processUtilities(
           responsiveAndFocusUtilities,
           prop,
