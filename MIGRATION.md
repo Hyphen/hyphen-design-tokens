@@ -7,8 +7,9 @@ both major releases — see the official
 
 The token names, file names, and file locations of everything published in the
 `build/` directory are **unchanged**. `build/utilities/utilities.css`, the
-React icon/logo components, and `build/types/index.d.ts` are byte-for-byte
-identical to the v3 output.
+React icon/logo components, and `build/types/index.d.ts` are identical to the
+v3 output (apart from the generation timestamp some of their headers embed —
+see section 5 below).
 
 ## Impact on consumers (hyphen-app, public-website)
 
