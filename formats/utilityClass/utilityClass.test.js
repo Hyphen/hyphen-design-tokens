@@ -276,8 +276,12 @@ describe('utilityClass format', () => {
 
     const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
-    expect(utilityClass.format({ dictionary: mockDictionary })).toBe(
-      expectedOutput,
-    );
+    try {
+      expect(utilityClass.format({ dictionary: mockDictionary })).toBe(
+        expectedOutput,
+      );
+    } finally {
+      spy.mockRestore();
+    }
   });
 });

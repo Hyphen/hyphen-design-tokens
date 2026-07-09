@@ -80,7 +80,10 @@ StyleDictionary.registerTransform({
       return token.value;
 
     const val = parseFloat(token.value);
-    if (isNaN(val)) throwSizeError(token.name, token.value, "rem");
+    if (isNaN(val))
+      throw new Error(
+        `Invalid size value "${token.value}" for token "${token.name}": expected a number or a CSS sizing keyword.`,
+      );
     return val + "rem";
   },
 });
