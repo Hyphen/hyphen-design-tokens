@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This package now lives in [Hyphen/hyphen-components](https://github.com/Hyphen/hyphen-components/tree/main/packages/design-tokens)
+
 # Hyphen Design Tokens
 
 [![npm version](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens.svg)](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens)
