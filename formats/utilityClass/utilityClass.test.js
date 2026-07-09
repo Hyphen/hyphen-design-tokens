@@ -1,7 +1,7 @@
 const utilityClass = require('./utilityClass');
 
 const mockDictionary = {
-  allProperties: [
+  allTokens: [
     {
       value: '#f3f4f6',
       darkValue: '#1f2937',
@@ -276,6 +276,8 @@ describe('utilityClass format', () => {
 
     const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
-    expect(utilityClass.formatter(mockDictionary)).toBe(expectedOutput);
+    expect(utilityClass.format({ dictionary: mockDictionary })).toBe(
+      expectedOutput,
+    );
   });
 });

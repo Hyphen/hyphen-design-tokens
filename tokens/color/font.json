@@ -2,18 +2,18 @@
   "color": {
     "font": {
       "base": {
-        "value": "{color.base.grey.600.value}",
-        "darkValue": "{color.base.grey.50.value}"
+        "value": "{color.base.grey.600}",
+        "darkValue": "{color.base.grey.50}"
       },
       "secondary": {
-        "value": "{color.base.grey.400.value}",
-        "darkValue": "{color.base.grey.200.value}"
+        "value": "{color.base.grey.400}",
+        "darkValue": "{color.base.grey.200}"
       },
       "tertiary": {
-        "value": "{color.base.grey.300.value}"
+        "value": "{color.base.grey.300}"
       },
       "grey": {
-        "value": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.600}"
       },
       "black": {
         "value": "{color.base.black}"
@@ -22,79 +22,79 @@
         "value": "{color.base.white}"
       },
       "inverse": {
-        "value": "{color.base.grey.100.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.100}",
+        "darkValue": "{color.base.grey.600}"
       },
       "disabled": {
-        "value": "{color.base.grey.300.value}",
-        "darkValue": "{color.base.grey.500.value}"
+        "value": "{color.base.grey.300}",
+        "darkValue": "{color.base.grey.500}"
       },
       "success": {
-        "value": "{color.base.green.600.value}",
-        "darkValue": "{color.base.green.500.value}"
+        "value": "{color.base.green.600}",
+        "darkValue": "{color.base.green.500}"
       },
       "success-disabled": {
-        "value": "{color.base.green.200.value}",
-        "darkValue": "{color.base.green.500.value}"
+        "value": "{color.base.green.200}",
+        "darkValue": "{color.base.green.500}"
       },
       "info": {
-        "value": "{color.base.blue.600.value}",
-        "darkValue": "{color.base.blue.400.value}"
+        "value": "{color.base.blue.600}",
+        "darkValue": "{color.base.blue.400}"
       },
       "warning": {
-        "value": "{color.base.yellow.600.value}",
-        "darkValue": "{color.base.yellow.500.value}"
+        "value": "{color.base.yellow.600}",
+        "darkValue": "{color.base.yellow.500}"
       },
       "warning-disabled": {
-        "value": "{color.base.yellow.200.value}",
-        "darkValue": "{color.base.yellow.200.value}"
+        "value": "{color.base.yellow.200}",
+        "darkValue": "{color.base.yellow.200}"
       },
       "danger": {
-        "value": "{color.base.red.600.value}",
-        "darkValue": "{color.base.red.500.value}"
+        "value": "{color.base.red.600}",
+        "darkValue": "{color.base.red.500}"
       },
       "danger-input": {
-        "value": "{color.base.grey.600.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.600}",
+        "darkValue": "{color.base.grey.600}"
       },
       "danger-disabled": {
-        "value": "{color.base.red.200.value}",
-        "darkValue": "{color.base.red.200.value}"
+        "value": "{color.base.red.200}",
+        "darkValue": "{color.base.red.200}"
       },
       "button-primary": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.grey.500.value}"
+        "darkValue": "{color.base.grey.500}"
       },
       "button-primary-hover": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.grey.500.value}"
+        "darkValue": "{color.base.grey.500}"
       },
       "button-primary-active": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.grey.500.value}"
+        "darkValue": "{color.base.grey.500}"
       },
       "button-secondary": {
-        "value": "{color.base.grey.400.value}",
+        "value": "{color.base.grey.400}",
         "darkValue": "{color.base.white}"
       },
       "button-secondary-hover": {
-        "value": "{color.base.grey.500.value}",
+        "value": "{color.base.grey.500}",
         "darkValue": "{color.base.white}"
       },
       "button-secondary-active": {
-        "value": "{color.base.grey.500.value}",
+        "value": "{color.base.grey.500}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary": {
-        "value": "{color.base.grey.400.value}",
+        "value": "{color.base.grey.400}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary-hover": {
-        "value": "{color.base.grey.500.value}",
+        "value": "{color.base.grey.500}",
         "darkValue": "{color.base.white}"
       },
       "button-tertiary-active": {
-        "value": "{color.base.grey.500.value}",
+        "value": "{color.base.grey.500}",
         "darkValue": "{color.base.white}"
       },
       "button-danger": {
@@ -108,38 +108,38 @@
       },
       "badge-default": {
         "value": "{color.base.white}",
-        "darkValue": "{color.base.grey.800.value}"
+        "darkValue": "{color.base.grey.800}"
       },
       "badge-secondary": {
-        "value": "{color.base.grey.700.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "value": "{color.base.grey.700}",
+        "darkValue": "{color.base.grey.100}"
       },
       "badge-danger": {
-        "value": "{color.base.red.600.value}",
-        "darkValue": "{color.base.red.400.value}"
+        "value": "{color.base.red.600}",
+        "darkValue": "{color.base.red.400}"
       },
       "badge-outline": {
-        "value": "{color.base.grey.700.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "value": "{color.base.grey.700}",
+        "darkValue": "{color.base.grey.100}"
       },
       "toast": {
-        "value": "{color.base.grey.50.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.50}",
+        "darkValue": "{color.base.grey.600}"
       },
       "toast-error": {
-        "value": "{color.base.white.value}"
+        "value": "{color.base.white}"
       },
       "tooltip": {
-        "value": "{color.base.grey.50.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.50}",
+        "darkValue": "{color.base.grey.600}"
       },
       "popover": {
-        "value": "{color.base.grey.600.value}",
-        "darkValue": "{color.base.grey.50.value}"
+        "value": "{color.base.grey.600}",
+        "darkValue": "{color.base.grey.50}"
       },
       "placeholder": {
-        "value": "{color.base.grey.300.value}",
-        "darkValue": "{color.base.grey.400.value}",
+        "value": "{color.base.grey.300}",
+        "darkValue": "{color.base.grey.400}",
         "comment": "Placeholder color for input fields"
       },
       "brand-yellow": {

@@ -2,68 +2,68 @@
   "color": {
     "border": {
       "default": {
-        "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.500.value}"
+        "value": "{color.base.grey.200}",
+        "darkValue": "{color.base.grey.500}"
       },
       "subtle": {
-        "value": "{color.base.grey.100.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.100}",
+        "darkValue": "{color.base.grey.600}"
       },
       "transparent": {
         "value": "transparent",
         "darkValue": "transparent"
       },
       "hover": {
-        "value": "{color.base.grey.300.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.300}",
+        "darkValue": "{color.base.grey.600}"
       },
       "active": {
-        "value": "{color.base.grey.400.value}",
-        "darkValue": "{color.base.grey.700.value}"
+        "value": "{color.base.grey.400}",
+        "darkValue": "{color.base.grey.700}"
       },
       "danger": {
-        "value": "{color.base.red.300.value}",
-        "darkValue": "{color.base.red.200.value}"
+        "value": "{color.base.red.300}",
+        "darkValue": "{color.base.red.200}"
       },
       "warning": {
-        "value": "{color.base.yellow.300.value}",
-        "darkValue": "{color.base.yellow.200.value}"
+        "value": "{color.base.yellow.300}",
+        "darkValue": "{color.base.yellow.200}"
       },
       "inverse": {
-        "value": "{color.base.grey.700.value}",
-        "darkValue": "{color.base.grey.200.value}"
+        "value": "{color.base.grey.700}",
+        "darkValue": "{color.base.grey.200}"
       },
       "info": {
-        "value": "{color.base.blue.200.value}",
-        "darkValue": "{color.base.blue.200.value}"
+        "value": "{color.base.blue.200}",
+        "darkValue": "{color.base.blue.200}"
       },
       "success": {
-        "value": "{color.base.green.200.value}",
-        "darkValue": "{color.base.green.200.value}"
+        "value": "{color.base.green.200}",
+        "darkValue": "{color.base.green.200}"
       },
       "button-primary": {
-        "value": "{color.base.grey.800.value}",
-        "darkValue": "{color.base.white.value}"
+        "value": "{color.base.grey.800}",
+        "darkValue": "{color.base.white}"
       },
       "button-primary-hover": {
-        "value": "{color.base.grey.700.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "value": "{color.base.grey.700}",
+        "darkValue": "{color.base.grey.100}"
       },
       "button-primary-active": {
-        "value": "{color.base.grey.800.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "value": "{color.base.grey.800}",
+        "darkValue": "{color.base.grey.100}"
       },
       "button-secondary": {
-        "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.300.value}"
+        "value": "{color.base.grey.200}",
+        "darkValue": "{color.base.grey.300}"
       },
       "button-secondary-hover": {
-        "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.300.value}"
+        "value": "{color.base.grey.200}",
+        "darkValue": "{color.base.grey.300}"
       },
       "button-secondary-active": {
-        "value": "{color.base.grey.300.value}",
-        "darkValue": "{color.base.grey.400.value}"
+        "value": "{color.base.grey.300}",
+        "darkValue": "{color.base.grey.400}"
       },
       "button-tertiary": {
         "value": "transparent",
@@ -78,35 +78,35 @@
         "darkValue": "transparent"
       },
       "badge-default": {
-        "value": "{color.base.grey.800.value}",
-        "darkValue": "{color.base.white.value}"
+        "value": "{color.base.grey.800}",
+        "darkValue": "{color.base.white}"
       },
       "badge-secondary": {
-        "value": "{color.base.grey.100.value}",
-        "darkValue": "{color.base.grey.700.value}"
+        "value": "{color.base.grey.100}",
+        "darkValue": "{color.base.grey.700}"
       },
       "badge-danger": {
-        "value": "{color.base.red.100.value}",
-        "darkValue": "{color.base.red.800.value}"
+        "value": "{color.base.red.100}",
+        "darkValue": "{color.base.red.800}"
       },
       "badge-outline": {
-        "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.600.value}"
+        "value": "{color.base.grey.200}",
+        "darkValue": "{color.base.grey.600}"
       },
       "sidebar-rail-hover": {
-        "value": "{color.base.grey.200.value}",
-        "darkValue": "{color.base.grey.400.value}"
+        "value": "{color.base.grey.200}",
+        "darkValue": "{color.base.grey.400}"
       },
       "toast": {
-        "value": "{color.base.grey.800.value}",
-        "darkValue": "{color.base.grey.100.value}"
+        "value": "{color.base.grey.800}",
+        "darkValue": "{color.base.grey.100}"
       },
       "toast-error": {
-        "value": "{color.base.red.600.value}"
+        "value": "{color.base.red.600}"
       },
       "checkbox": {
-        "value": "{color.base.grey.400.value}",
-        "darkValue": "{color.base.grey.400.value}"
+        "value": "{color.base.grey.400}",
+        "darkValue": "{color.base.grey.400}"
       },
       "brand-yellow": {
         "value": "#ffd200"
@@ -136,19 +136,19 @@
         "value": "#1e1e5a"
       },
       "black": {
-        "value": "{color.base.black.value}"
+        "value": "{color.base.black}"
       },
       "white": {
-        "value": "{color.base.white.value}"
+        "value": "{color.base.white}"
       },
       "green": {
-        "value": "{color.base.green.500.value}"
+        "value": "{color.base.green.500}"
       },
       "red": {
-        "value": "{color.base.red.500.value}"
+        "value": "{color.base.red.500}"
       },
       "purple": {
-        "value": "{color.base.purple.500.value}"
+        "value": "{color.base.purple.500}"
       }
     }
   }

@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens.svg)](https://badge.fury.io/js/%40hyphen%2Fhyphen-design-tokens)
 
-A central location to store shared attributes of the hyphen Design System. These attributes include: colors, fonts, spacing, and more. Using [Amazon's Style Dictionary](https://amzn.github.io/style-dictionary/) we transform attributes into usable variables for a variety of platforms.
+A central location to store shared attributes of the hyphen Design System. These attributes include: colors, fonts, spacing, and more. Using [Style Dictionary](https://styledictionary.com) we transform attributes into usable variables for a variety of platforms.
+
+> **Upgrading?** See [MIGRATION.md](./MIGRATION.md) for notes on the Style Dictionary v3 → v5 upgrade and its (minimal) impact on consumers.
 
 ## Table of Contents
 
