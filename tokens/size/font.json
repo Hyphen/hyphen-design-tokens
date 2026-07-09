@@ -17,10 +17,10 @@
         "value": "700"
       },
       "form-label": {
-        "value": "{size.font-weight.medium.value}"
+        "value": "{size.font-weight.medium}"
       },
       "form-help-text": {
-        "value": "{size.font-weight.normal.value}"
+        "value": "{size.font-weight.normal}"
       }
     },
     "font-size": {
@@ -61,14 +61,14 @@
         "value": "4"
       },
       "base": {
-        "value": "{size.font-size.md.value}",
+        "value": "{size.font-size.md}",
         "comment": "the base size of the font"
       },
       "form-label": {
-        "value": "{size.font-size.sm.value}"
+        "value": "{size.font-size.sm}"
       },
       "form-help-text": {
-        "value": "{size.font-size.sm.value}"
+        "value": "{size.font-size.sm}"
       }
     }
   }

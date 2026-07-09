@@ -1,9 +1,9 @@
-const StyleDictionary = require("style-dictionary");
-const fs = require("fs-extra");
+import StyleDictionary from "style-dictionary";
+import fs from "fs-extra";
 
-const utilityClass = require("./formats/utilityClass/utilityClass");
-const createIconComponents = require("./utils/createIconComponents/createIconComponents");
-const createLogoComponents = require("./utils/createLogoComponents/createLogoComponents");
+import utilityClass from "./formats/utilityClass/utilityClass.js";
+import createIconComponents from "./utils/createIconComponents/createIconComponents.js";
+import createLogoComponents from "./utils/createLogoComponents/createLogoComponents.js";
 
 const webPath = `build/css/`;
 const scssPath = `build/scss/`;
@@ -60,17 +60,17 @@ function darkFormatWrapper(format) {
 
     // Use the built-in format but with our customized dictionary object
     // so it will output the darkValue instead of the value
-    return StyleDictionary.format[format]({ ...args, dictionary });
+    return StyleDictionary.hooks.formats[format]({ ...args, dictionary });
   };
 }
 
 StyleDictionary.registerTransform({
   name: "size/remAuto",
   type: "value",
-  matcher: function (token) {
+  filter: function (token) {
     return token.attributes.category === "size";
   },
-  transformer: function (token) {
+  transform: function (token) {
     if (
       token.value === "auto" ||
       token.value === "fit-content" ||
@@ -80,7 +80,10 @@ StyleDictionary.registerTransform({
       return token.value;
 
     const val = parseFloat(token.value);
-    if (isNaN(val)) throwSizeError(token.name, token.value, "rem");
+    if (isNaN(val))
+      throw new Error(
+        `Invalid size value "${token.value}" for token "${token.name}": expected a number or a CSS sizing keyword.`,
+      );
     return val + "rem";
   },
 });
@@ -88,13 +91,13 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: "size/breakpoint",
   type: "value",
-  matcher: function (token) {
+  filter: function (token) {
     return (
       token.attributes.category === "size" &&
       token.attributes.type === "breakpoint"
     );
   },
-  transformer: function (token) {
+  transform: function (token) {
     return parseInt(token.original.value).toString() + "px";
   },
 });
@@ -102,7 +105,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: "size/unitless",
   type: "value",
-  matcher: function (token) {
+  filter: function (token) {
     return (
       token.attributes.type === "font-weight" ||
       token.attributes.type === "z-index" ||
@@ -110,7 +113,7 @@ StyleDictionary.registerTransform({
       token.attributes.type === "box-shadow"
     );
   },
-  transformer: function (token) {
+  transform: function (token) {
     return token.original.value.toString();
   },
 });
@@ -118,31 +121,33 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: "size/percentage",
   type: "value",
-  matcher: function (token) {
+  filter: function (token) {
     return (
       token.attributes.category === "size" &&
       token.attributes.type === "percentage"
     );
   },
-  transformer: function (token) {
+  transform: function (token) {
     return parseInt(token.original.value).toString() + "%";
   },
 });
 
 StyleDictionary.registerFormat(utilityClass);
 
-StyleDictionary.extend({
+const styleDictionary = new StyleDictionary({
   source: ["tokens/**/*.json"],
 
-  format: {
-    cssDark: darkFormatWrapper(`css/variables`),
+  hooks: {
+    formats: {
+      cssDark: darkFormatWrapper(`css/variables`),
+    },
   },
 
   platforms: {
     css: {
       transforms: [
         "attribute/cti",
-        "name/cti/kebab",
+        "name/kebab",
         "color/css",
         "size/remAuto",
         "size/breakpoint",
@@ -175,15 +180,16 @@ StyleDictionary.extend({
     assets: {
       transformGroup: "assets",
       buildPath: "build/",
+      files: [],
       actions: ["copy_assets"],
     },
     cssUtilities: {
       buildPath: "build/utilities/",
       transforms: [
         "attribute/cti",
-        "name/cti/kebab",
+        "name/kebab",
         "time/seconds",
-        "content/icon",
+        "html/icon",
         "color/css",
       ],
       files: [
@@ -196,7 +202,7 @@ StyleDictionary.extend({
     json: {
       transforms: [
         "attribute/cti",
-        "name/cti/pascal",
+        "name/pascal",
         "size/remAuto",
         "size/breakpoint",
         "color/hex",
@@ -212,7 +218,7 @@ StyleDictionary.extend({
     js: {
       transforms: [
         "attribute/cti",
-        "name/cti/pascal",
+        "name/pascal",
         "size/remAuto",
         "size/breakpoint",
         "color/hex",
@@ -228,7 +234,7 @@ StyleDictionary.extend({
     scss: {
       transforms: [
         "attribute/cti",
-        "name/cti/kebab",
+        "name/kebab",
         "color/css",
         "size/remAuto",
         "size/breakpoint",
@@ -249,127 +255,10 @@ StyleDictionary.extend({
         },
       ],
     },
-    // android: {
-    //   transformGroup: 'android',
-    //   buildPath: 'build/android/',
-    //   files: [
-    //     {
-    //       destination: 'font_dimens.xml',
-    //       format: 'android/fontDimens',
-    //     },
-    //     {
-    //       destination: 'colors.xml',
-    //       format: 'android/colors',
-    //     },
-    //   ],
-    // },
-    // ios: {
-    //   transformGroup: 'ios',
-    //   buildPath: 'build/ios/',
-    //   files: [
-    //     {
-    //       destination: 'StyleDictionaryColor.h',
-    //       format: 'ios/colors.h',
-    //       className: 'StyleDictionaryColor',
-    //       type: 'StyleDictionaryColorName',
-    //       filter: {
-    //         attributes: {
-    //           category: 'color',
-    //         },
-    //       },
-    //     },
-    //     {
-    //       destination: 'StyleDictionaryColor.m',
-    //       format: 'ios/colors.m',
-    //       className: 'StyleDictionaryColor',
-    //       type: 'StyleDictionaryColorName',
-    //       filter: {
-    //         attributes: {
-    //           category: 'color',
-    //         },
-    //       },
-    //     },
-    //     {
-    //       destination: 'StyleDictionarySize.h',
-    //       format: 'ios/static.h',
-    //       className: 'StyleDictionarySize',
-    //       type: 'float',
-    //       filter: {
-    //         attributes: {
-    //           category: 'size',
-    //         },
-    //       },
-    //     },
-    //     {
-    //       destination: 'StyleDictionarySize.m',
-    //       format: 'ios/static.m',
-    //       className: 'StyleDictionarySize',
-    //       type: 'float',
-    //       filter: {
-    //         attributes: {
-    //           category: 'size',
-    //         },
-    //       },
-    //     },
-    //   ],
-    // },
-    // 'ios-swift': {
-    //   transformGroup: 'ios-swift',
-    //   buildPath: 'build/ios-swift/',
-    //   files: [
-    //     {
-    //       destination: 'StyleDictionary+Class.swift',
-    //       format: 'ios-swift/class.swift',
-    //       className: 'StyleDictionaryClass',
-    //       filter: {},
-    //     },
-    //     {
-    //       destination: 'StyleDictionary+Enum.swift',
-    //       format: 'ios-swift/enum.swift',
-    //       className: 'StyleDictionaryEnum',
-    //       filter: {},
-    //     },
-    //     {
-    //       destination: 'StyleDictionary+Struct.swift',
-    //       format: 'ios-swift/any.swift',
-    //       className: 'StyleDictionaryStruct',
-    //       filter: {},
-    //       options: {
-    //         imports: 'SwiftUI',
-    //         objectType: 'struct',
-    //         accessControl: 'internal',
-    //       },
-    //     },
-    //   ],
-    // },
-    // 'ios-swift-separate-enums': {
-    //   transformGroup: 'ios-swift-separate',
-    //   buildPath: 'build/ios-swift/',
-    //   files: [
-    //     {
-    //       destination: 'StyleDictionaryColor.swift',
-    //       format: 'ios-swift/enum.swift',
-    //       className: 'StyleDictionaryColor',
-    //       filter: {
-    //         attributes: {
-    //           category: 'color',
-    //         },
-    //       },
-    //     },
-    //     {
-    //       destination: 'StyleDictionarySize.swift',
-    //       format: 'ios-swift/enum.swift',
-    //       className: 'StyleDictionarySize',
-    //       filter: {
-    //         attributes: {
-    //           category: 'size',
-    //         },
-    //       },
-    //     },
-    //   ],
-    // },
   },
-}).buildAllPlatforms();
+});
+
+await styleDictionary.buildAllPlatforms();
 
 // Create React components based on SVG icons.
 createIconComponents();
@@ -382,9 +271,11 @@ console.log("\n==============================================");
 console.log("\nReact logos created!");
 
 // From the built dictionary, generate constants of all token options.
-// File can't be required at the top since build files are a dependency for this function
+// File can't be imported at the top since build files are a dependency for this function
 // and they do not exist until the style dictionary is built.
-const generateTokenTypes = require("./utils/generateTokenTypes/generateTokenTypes");
+const { default: generateTokenTypes } = await import(
+  "./utils/generateTokenTypes/generateTokenTypes.js"
+);
 generateTokenTypes();
 console.log("\n==============================================");
 console.log("\nToken types generated!");
